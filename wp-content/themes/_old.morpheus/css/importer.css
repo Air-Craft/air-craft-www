@@ -1,0 +1,55 @@
+#coll-demos .xml-count {
+    background    : #777777;
+    border-radius : 30px;
+    color         : #FFFFFF;
+    font-size     : 14px;
+    font-weight   : 600;
+    margin-left   : 5px;
+    margin-right  : 20px;
+    padding       : 4px 10px;
+    position      : relative;
+    top           : -3px;
+}
+
+#coll-demos-form ul.choices-container li.choice {
+    position   : relative;
+    display    : inline-block;
+    box-sizing : border-box;
+    padding    : 1px;
+    width      : 33%;
+}
+
+#coll-demos-form input.coll-choose-demo {
+    display : none;
+}
+
+#coll-demos-form ul.choices-container li.choice .img {
+    position : relative;
+    display  : block;
+}
+#coll-demos-form input.coll-choose-demo:checked + label:before {
+    content    : "";
+    position   : absolute;
+    width      : 100%;
+    height     : 100%;
+    background : rgba(62, 160, 85, 0.43);
+}
+#coll-demos-form ul.choices-container li.choice .img img {
+    width          : 100%;
+    height         : auto;
+    vertical-align : bottom;
+}
+
+#coll-demos-form ul.choices-container li.choice a.preview {
+    position : absolute;
+    display  : none;
+    bottom   : 10px;
+    right    : 10px;
+}
+#coll-demos-form ul.choices-container li.choice:hover a.preview {
+    display : block;
+}
+
+#coll-demos .coll-info  {
+    margin-bottom: 30px;
+}

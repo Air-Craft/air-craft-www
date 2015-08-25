@@ -1,0 +1,8 @@
+<wpml-config>
+    <admin-texts>
+        <key name="option_tree">
+            <key name="coll_footer_text" />  
+            <key name="coll_404_text" />          
+        </key>     
+    </admin-texts>   
+</wpml-config>
