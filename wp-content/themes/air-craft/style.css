@@ -51,7 +51,7 @@ section.launch {
 	position: absolute;
 	top: 50%;
 	left: 50%;
-	height: 500px;
+	height: 400px;
 	max-width: 420px;
 	width: 97%;
 	margin: auto;
@@ -142,7 +142,6 @@ section.launch INPUT[type="submit"]:hover {
 	margin: 30px auto 0;
 	width: 100%;
 	text-align: center;
-	position: fixed;
 	bottom: 0;
 }
 
@@ -153,6 +152,30 @@ section.launch INPUT[type="submit"]:hover {
     padding   : 1.5em;
 }
 
+/** FOOTER **/
+#launch-footer {
+	font: 11px/1em "Helvetica Neue", "lato", sans-serif;
+	font-weight: 300;
+	color: #fffbe0; 	
+	position: fixed;
+	bottom: 0;
+	width: 100%;
+	text-align: center;
+	margin-bottom: 1.5em;
+}
+#launch-footer span {
+	opacity: 0.5;
+}
+#launch-footer A.fa-facebook { margin-left: 0.65em; }
+#launch-footer A {
+	display: inline-block;
+	margin: 0;
+	padding: 0.5em 0.36em;
+	font-size: 1.5em;
+	color: #fffbe0;
+	position: relative;
+	top: 0.15em;
+}
 
 
 /** AUTOPLAY DISABLED **/

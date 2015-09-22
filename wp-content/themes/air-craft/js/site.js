@@ -14,6 +14,7 @@ jQuery(function ($) {
 	$(window)[0].onYouTubeIframeAPIReady = linkUpVideoButtons;
     	
 	//fadeInLaunch();
+		
     	
 	function linkUpVideoButtons()
 	{
@@ -38,11 +39,11 @@ jQuery(function ($) {
 			if (player.isMuted()) {
 				console.log('Unmuting');
 				player.unMute();
-				muteBtn.removeClass('fa-volume-off').addClass('fa-volume-up');
+				muteBtn.find('i').removeClass('fa-volume-off').addClass('fa-volume-up');
 			} else {
 				console.log('Muting');
 				player.mute();
-				muteBtn.removeClass('fa-volume-up').addClass('fa-volume-off');
+				muteBtn.find('i').removeClass('fa-volume-up').addClass('fa-volume-off');
 			}
 		});
 	     

@@ -4,6 +4,9 @@ Template Name: Launch
 */
 ?>
 
+<?php
+$obfuscated_email = antispambot(ot_get_option('ac-public-email'));
+?>
 
 <?php get_header(); ?>
 
@@ -30,10 +33,15 @@ Template Name: Launch
 			<div style="position: absolute; left: -5000px;"><input type="text" name="b_c2e364dea4eef797148ed9557_ac0d7d90d1" tabindex="-1" value=""></div>
 		</form>
 	</div>	
+	
+	<div class="mute-btn"><a href="#" id="video-mute-btn" class="prevent-line"><i class="fa fa-volume-up"></i></a></div>
+
 </div></section>
 
-<div class="mute-btn"><a href="#" id="video-mute-btn" class="fa fa-volume-up"><i class="fa"></i></a></div>
-
-<div id="ytdum"></div>
+<div id="launch-footer"><span>Copyright &#169; 2015 Air Craft Media LTD, London UK</span>
+	<a href="http://facebook.com/AirCraftHQ" target="_blank" class="fa fa-facebook"></a>
+	<a href="http://twitter.com/AirCraftHQ" target="_blank" class="fa fa-twitter"></a>
+	<a href="mailto:<?php echo $obfuscated_email ?>" class="fa fa-envelope"></a>
+</div>
 
 <?php get_footer(); ?>

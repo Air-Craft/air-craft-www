@@ -109,6 +109,19 @@ function ac_custom_theme_options()
             'min_max_step' => '',
             'class' => ''
    		),
+   		array(
+            'id' => 'ac-public-email',
+            'label' => 'Public Email',
+			'desc' => 'Email contact for Launch page, etc.',
+			'std' => '',
+			'type' => 'text',
+			'section' => 'air-craft',
+			'rows' => '',
+            'post_type' => '',
+            'taxonomy' => '',
+            'min_max_step' => '',
+            'class' => ''
+   		),
    	);
 	
 	array_unshift($custom_settings['sections'], $section_entry);
