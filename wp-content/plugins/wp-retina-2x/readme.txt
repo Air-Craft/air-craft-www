@@ -4,8 +4,8 @@ Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_i
 Tags: retina, images, image, admin, attachment, media, files, iphone, ipad, plugin, picture, pictures
 License: GPLv2 or later
 Requires at least: 3.5
-Tested up to: 4.3
-Stable tag: 3.4.8
+Tested up to: 4.3.1
+Stable tag: 3.5.0
 
 Make your website look beautiful and crisp on Retina / High DPI displays.
 
@@ -26,6 +26,9 @@ Languages: English, French.
 3. Check if it works! - if it doesn't, read the FAQ, the tutorial, and check the forums.
 
 == Changelog ==
+
+= 3.5.0 =
+* Update: Towards using the new WP translation system.
 
 = 3.4.8 =
 * Update: For WordPress 4.3.
