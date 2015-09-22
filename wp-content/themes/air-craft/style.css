@@ -1,0 +1,224 @@
+/*
+ Theme Name:   Air Craft
+ Author:       Hari Karam Singh
+ Template:     morpheus
+ Version:      1.0.0
+ Text Domain:  air-craft-www
+ */
+
+/* FULL SCREEN VIDEO */
+
+.fullscreen-bg {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  overflow: hidden;
+  z-index: -100;
+  background-color: black;
+  background: url('img/ac-sabre-static-bg-2.jpg') no-repeat;
+  background-size: cover;
+  user-select: none;
+}
+
+.fullscreen-bg > iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  
+}
+
+div.notouch { width: 100%; height: 100%; position:absolute; top: 0; left: 0;}
+
+
+/* LAUNCH SCREEN */
+
+
+/*.page-template-launch img { zoom: 35%; }*/
+
+/* Hide the top and bottom  */
+.page-template-launch header.site-header,
+.page-template-launch footer {
+	display: none;
+}
+
+.page-template-launch .js-coll-scrollbar { display: none; }
+
+section.launch {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	height: 500px;
+	max-width: 420px;
+	width: 97%;
+	margin: auto;
+    -webkit-transition: 1s opacity;
+        	transition: 1s opacity;
+}
+
+section.launch > div {
+	position: absolute;
+	width: 100%; 
+	height: 100%;
+	top: -50%;
+	left: -50%;
+}
+
+section.launch img.logo { display: block;  margin: 0 auto; width: 80px; height: auto; }
+section.launch h1 { width: 100%; text-align: center; margin: 37px 0 0; }
+section.launch h1 > img { width: 260px; height: auto; }
+
+section.launch * { user-select: none; }
+
+section.launch p.msg { 
+	font-family: "lato", "Helvetica Neue", sans-serif;
+	font-size: 16px;
+	font-weight: 300; 
+	letter-spacing: 3px;
+	color: #fffbe0;
+	width: 100%; 
+	text-align: center;
+	margin: 5px 0 37px 0; 
+}
+
+
+section.launch form p {
+	font-family: "lato", "Helvetica Neue", sans-serif;
+	font-size: 17px;
+	font-weight: 500;
+	letter-spacing: 1px;
+	text-transform: uppercase;
+	color: #fffbe0;
+	width: 100%;
+	text-align: center;
+	margin: 0 0 6px;
+}
+	
+
+section.launch INPUT[type="email"] {
+	background: rgba(200, 200, 200, 0.65);
+	width: 100%;
+	height: 28px;
+	text-align: center;
+	border: none;
+	display: block;
+	margin: 0;
+	width: 100%;
+	
+	font: 14px/1.2em "lato", "Helvetica Neue", Arial, sans-serif;
+	font-weight: 500;
+	color: #fffbe0;
+}
+section.launch INPUT::-webkit-input-placeholder { color:#dadada; line-height: 1.2em;}
+section.launch INPUT::-moz-placeholder { color:#dadada; line-height: 1em; }
+section.launch INPUT:-ms-input-placeholder { color:#dadada; line-height: 1em; }
+section.launch INPUT:-moz-placeholder { color:#dadada; line-height: 1em; }
+
+
+section.launch INPUT[type="submit"] {
+	background: none;
+	border: 1px solid #fffbe0;
+	border-color: rgba(255, 251, 224, 0.75);
+	color: #fffbe0;
+	text-transform: uppercase;
+	font-family: "lato", "Helvetica Neue", sans-serif;
+	font-size: 14px;
+	letter-spacing: 1px;
+	font-weight: 500;
+	display: block;
+	padding: 6px 30px 8px 30px;
+	margin: 12px auto 0;
+	cursor: pointer;
+}
+
+section.launch INPUT[type="submit"]:hover {
+	background-color: rgba(255, 251, 224, 0.5);
+}
+
+.mute-btn {
+	margin: 30px auto 0;
+	width: 100%;
+	text-align: center;
+	position: fixed;
+	bottom: 0;
+}
+
+.mute-btn > a {
+	width: 100px;
+	font-size : 1.5em;
+    color     : #fffbe0;
+    padding   : 1.5em;
+}
+
+
+
+/** AUTOPLAY DISABLED **/
+.autoplay-enabled p.no-autoplay { display: none; }
+.autoplay-disabled p.no-autoplay { display: block !important; }
+ 
+section.launch p.no-autoplay {
+	width: 100%;
+	text-align: center;
+ 	color: #fffbe0;
+	 	
+	font-family: "lato", "Helvetica Neue", sans-serif;
+	font-size: 20px;
+	letter-spacing: 1px;
+	font-weight: 300;
+	margin-bottom: 10px;
+	border: none;
+}
+.autoplay-disabled section.launch p.msg { margin-bottom: 20px;}
+section.launch p.no-autoplay span {
+	position: relative;
+	top: -5px;
+}
+section.launch p.no-autoplay a { 
+	text-decoration: none !important; 
+	user-select: none !important; 
+	border: none !important;
+	color: #fffbe0;
+	cursor: pointer;
+}
+
+section.launch p.no-autoplay i {
+	font-size: 120px;
+	border: none;
+	text-decoration: none;
+}
+
+.autoplay-disabled BODY {overflow: auto !important; } 
+.autoplay-disabled section.launch {
+	position: relative;
+	top: 0;
+	left: 0;
+	margin: 30px auto; 
+}
+
+.autoplay-disabled section.launch > div {
+	position: relative;
+	top: 0;
+	left: 0;
+}
+
+.autoplay-disabled .fullscreen-bg > iframe { display: none; }
+.autoplay-disabled #video-mute-btn { display: none; }
+.autoplay-disabled section.launch form p { font-size: 25px; }
+.autoplay-disabled .mute-btn { display: none; }
+.autoplay-disabled BODY { position: relative; }
+/*.autoplay-disabled section.launch p.msg { margin-bottom: 100px;}*/
+
+/* THESE NEED TO BE LAST */
+
+@media (min-aspect-ratio: 16/9) { .fullscreen-bg IFRAME { height: 300%; top: -100%; } }
+@media (max-aspect-ratio: 16/9) { .fullscreen-bg IFRAME { width: 300%; left: -100%; } }
+
+@media (max-width: 500px) and (orientation: portrait) { .fullscreen-bg { background-position-x: -250px } }
+
+/*@media (max-device-width: 736px) { section.launch p.msg { font-weight: 500; } }*/
+
+
+

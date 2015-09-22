@@ -9,7 +9,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1"/>
     <meta http-equiv="Content-Type" content="<?php bloginfo('html_type'); ?>; charset=<?php bloginfo('charset'); ?>"/>
     <!-- Title -->
-    <title><?php bloginfo('name'); ?> <?php wp_title(); ?></title>
+    <title><?php get_template_part('inc/title') ?></title>
 
     <!--    google fonts -->
     <?php echo ot_get_option('coll_google_fonts'); ?>

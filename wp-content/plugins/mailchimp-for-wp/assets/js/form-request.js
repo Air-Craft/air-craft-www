@@ -30,7 +30,6 @@
 			}
 
 			self.scrollTo();
-			return true;
 		}
 
 		/**
@@ -60,7 +59,7 @@
 			}
 
 			// scroll there. if jQuery is loaded, do it with an animation.
-			if(window.jQuery !== undefined) {
+			if( request.animate_scroll && window.jQuery !== undefined) {
 				jQuery('html, body').animate({ scrollTop: scrollToHeight }, 800);
 			} else {
 				window.scrollTo(0, scrollToHeight);
