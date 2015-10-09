@@ -3,14 +3,17 @@
 // ENQUEUE CHILD THEME SCRIPTS
 add_action( 'wp_enqueue_scripts', 'ac_enqueue_parent_styles' );
 function ac_enqueue_parent_styles() {
-    wp_enqueue_style( 'parent-style', get_template_directory_uri().'/style.css' );
+	wp_enqueue_style( 'parent-style', trailingslashit(get_template_directory_uri()).'style.css' );
+    // wp_enqueue_style( 'flare-style', trailingslashit(get_stylesheet_directory_uri()).'js/pe.flare/jquery.pixelentity.flare.min.css' );
+    wp_enqueue_style( 'colorbox-style', get_stylesheet_directory_uri().'/js/colorbox/colorbox.css' );
 }
 
 function ac_add_theme_scripts() {
 	wp_enqueue_script('youtube_iframe_api', '//www.youtube.com/iframe_api', null, null, false);
 	wp_enqueue_script('ac_typekit_script', trailingslashit(get_stylesheet_directory_uri()).'js/typekit.js', null, '1.0', false);
+	// wp_enqueue_script('flare_script', trailingslashit(get_stylesheet_directory_uri()).'js/pe.flare/jquery.pixelentity.flare.min.js', array('jquery'), '1.0', false);
+	wp_enqueue_script('colorbox_js', trailingslashit(get_stylesheet_directory_uri()).'js/colorbox/jquery.colorbox-min.js', array('jquery'), '1.0', false);
 	wp_enqueue_script('ac_autoplay_detect_script', trailingslashit(get_stylesheet_directory_uri()).'js/autoplay-detect.js', array('jquery'), '1.0', false);
-	// wp_enqueue_script('ac_typekit_script');
 }
 
 add_action( 'wp_enqueue_scripts', 'ac_add_theme_scripts' );  
@@ -25,15 +28,14 @@ add_action('wp_print_scripts', function () {
 		
 		
 		wp_dequeue_script('page.sections');
-		wp_enqueue_script( 'retina' );
-		//wp_enqueue_script( 'foundation' );
+		wp_dequeue_script( 'foundation' );
 		wp_dequeue_script( 'scrollbar' );
 		wp_dequeue_script( 'sresize' );
         wp_dequeue_script( 'mousewheel.s' );
         wp_dequeue_script( 'mousewheel' );
 		wp_dequeue_script( 'comment-reply' );
 		wp_dequeue_script( 'swipe' );
-		wp_enqueue_script( 'sresize' );
+		wp_dequeue_script( 'sresize' );
 		wp_dequeue_script( 'superfish' );
 		wp_dequeue_script( 'fitvid' );
 		wp_dequeue_script( 'isotope' );
@@ -45,17 +47,60 @@ add_action('wp_print_scripts', function () {
 		wp_dequeue_script( 'countdown' );
 		wp_dequeue_script( 'shortcodes' );
 		wp_dequeue_script( 'commons' );
-		wp_dequeue_script( 'page.sections' );
+		wp_dequeue_script( 'retina' );
+        wp_dequeue_script( 'page.sections' );
 		wp_dequeue_script( 'page.single' );
 		wp_dequeue_script( 'page.single' );
 		wp_dequeue_script( 'page.single' );
 		wp_dequeue_script( 'page.single' );
 		wp_dequeue_script( 'page.single' );
-        wp_dequeue_script( 'custom.structure.s' );
+		wp_dequeue_script( 'custom.structure.s' );
         wp_dequeue_script( 'custom.structure' );
+		
+        wp_dequeue_script( 'greensock' );
+        wp_dequeue_script( 'layerslider' );
+		wp_dequeue_script( 'layerslider-transitions' );
+		wp_dequeue_script( 'jquery-ui' );
+		wp_dequeue_script( 'layerslider' );
+		wp_dequeue_script( 'smartresize' );
+		wp_dequeue_script( 'jquery-smartresize' );
 		
 	}
 });
+
+
+/////////////////////////////////////////////////////////////////////////
+// ICONS
+/////////////////////////////////////////////////////////////////////////
+
+add_action('wp_head', 'ac_icons_header');
+
+function coll_favicon() {
+	// overide
+}
+function ac_icons_header() {
+	$base = trailingslashit(get_stylesheet_directory_uri());
+	echo <<<EOF
+		<link rel="apple-touch-icon" sizes="60x60" href="{$base}icons/apple-icon-60x60.png">
+		<link rel="apple-touch-icon" sizes="72x72" href="{$base}icons/apple-icon-72x72.png">
+		<link rel="apple-touch-icon" sizes="76x76" href="{$base}icons/apple-icon-76x76.png">
+		<link rel="apple-touch-icon" sizes="114x114" href="{$base}icons/apple-icon-114x114.png">
+		<link rel="apple-touch-icon" sizes="120x120" href="{$base}icons/apple-icon-120x120.png">
+		<link rel="apple-touch-icon" sizes="144x144" href="{$base}icons/apple-icon-144x144.png">
+		<link rel="apple-touch-icon" sizes="152x152" href="{$base}icons/apple-icon-152x152.png">
+		<link rel="apple-touch-icon" sizes="180x180" href="{$base}icons/apple-icon-180x180.png">
+		<link rel="icon" type="image/png" sizes="192x192"  href="{$base}icons/android-icon-192x192.png">
+		<link rel="icon" type="image/png" sizes="32x32" href="{$base}icons/favicon-32x32.png">
+		<link rel="icon" type="image/png" sizes="96x96" href="{$base}icons/favicon-96x96.png">
+		<link rel="icon" type="image/png" sizes="16x16" href="{$base}icons/favicon-16x16.png">
+		<link rel="manifest" href="{$base}icons/manifest.json">
+		<meta name="msapplication-TileColor" content="#000000">
+		<meta name="msapplication-TileImage" content="{$base}icons/ms-icon-144x144.png">
+		<meta name="theme-color" content="#000000">
+EOF;
+}
+
+
 
 /////////////////////////////////////////////////////////////////////////
 // THEME OPTIONS 
