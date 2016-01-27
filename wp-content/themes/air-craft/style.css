@@ -20,7 +20,9 @@
   background-size: cover;
   user-select: none;
 }
-.no-autoplay .fullscreen-bg { background: url('img/ac-sabre-static-bg-2.jpg') no-repeat; }
+.autoplay-disabled .fullscreen-bg { background-image: url('img/ac-sabre-static-bg-2.jpg'); }
+.fullscreen-bg > * { display: none; }  
+.autoplay-enabled .fullscreen-bg > * { display: block; }
 
 .fullscreen-bg > * {
   position: absolute;
@@ -63,11 +65,15 @@ section.launch {
 section.launch * { 
 	outline:0 !important;
 	
-	user-select:none;
+	/*user-select:none;
 	-moz-user-select: none;
 	-webkit-user-select: none;
-	-ms-user-select: none;	
+	-ms-user-select: none;*/	
 }
+
+/*section.launch > DIV > * { opacity: 0.65; }
+section.launch > DIV > A#video-play-btn {opacity: 1 !important; }*/
+
 
 section.launch > div {
 	position: absolute;
@@ -95,7 +101,7 @@ section.launch p.msg {
 
 section.launch A#video-play-btn {
 	width: 200px;
-	margin: 30px auto;
+	margin: 20px auto;
 	display: block;
 	text-align: center;
  	color: #fffbe0;
