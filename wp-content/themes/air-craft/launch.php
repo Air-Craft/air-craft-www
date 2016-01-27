@@ -13,9 +13,9 @@ $obfuscated_email = antispambot(ot_get_option('ac-public-email'));
 
 <div class="fullscreen-bg">
 	<video autoplay loop muted preload="auto">
-	<source src="http://air-craft-wp.s3.amazonaws.com/AC-Home-Video.mp4" type="video/mp4" />
-	<source src="http://air-craft-wp.s3.amazonaws.com/AC-Home-Video.mp4" type="video/ogg" />
-	<source src="http://air-craft-wp.s3.amazonaws.com/AC-Home-Video.mp4" type="video/webm" />
+	<source src="/wp-content/uploads/AC-Home-Video.mp4" type="video/mp4" />
+	<source src="/wp-content/uploads/AC-Home-Video.mp4" type="video/ogg" />
+	<source src="/wp-content/uploads/AC-Home-Video.mp4" type="video/webm" />
 </video>
 <?php //echo ot_get_option('ac-background-video-embed') ?>
 </div>
