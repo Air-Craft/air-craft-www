@@ -1,0 +1,41 @@
+table.pages div.row-actions,
+table.posts div.row-actions {
+	float: left;
+	margin-top: 0;
+	padding-top: 1px;
+	position: relative;
+}
+
+td.page-title strong,
+td.post-title strong {
+	float: left;
+	margin-right: 1em;
+}
+
+table.pages tr,
+table.posts tr { line-height: 1.2em; }
+
+table.pages th#date,
+table.posts th#date { width: 25%; }
+
+table.pages tbody th.check-column,
+table.posts tbody th.check-column { padding-bottom: 0; }
+
+td.comments.column-comments { padding: 2px 0 0 0; }
+td.date br { display: none; }
+td.date abbr { margin-right: 0.4em; }
+table.posts th,
+table.pages th { padding-top: 4px !important; }
+
+table.pages td,
+table.posts td {
+	line-height: 24px !important;
+	padding-top: 0px !important;
+	padding-bottom: 0px !important;
+}
+
+table.pages td.comments a,
+table.posts td.comments a { padding: 5px 0 1px; }
+
+table.pages th#date,
+table.posts th#date { width: 20%; }

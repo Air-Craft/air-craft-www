@@ -21,6 +21,10 @@ add_action( 'wp_enqueue_scripts', 'ac_add_theme_scripts' );
 // REMOVE UNNECESSARY SCRIPTS
 add_action('wp_print_scripts', function () {
 	
+	wp_dequeue_script( 'page.single' );
+	wp_deregister_script( 'page.single' );
+	wp_enqueue_script( 'page.single', trailingslashit(get_stylesheet_directory_uri()) . 'js/page.single.js', '', null, true );
+		
 	
 	if (is_page_template('launch.php')) {
 		// For now this is just launch
@@ -50,12 +54,9 @@ add_action('wp_print_scripts', function () {
 		wp_dequeue_script( 'retina' );
         wp_dequeue_script( 'page.sections' );
 		wp_dequeue_script( 'page.single' );
-		wp_dequeue_script( 'page.single' );
-		wp_dequeue_script( 'page.single' );
-		wp_dequeue_script( 'page.single' );
-		wp_dequeue_script( 'page.single' );
 		wp_dequeue_script( 'custom.structure.s' );
         wp_dequeue_script( 'custom.structure' );
+			
 		
         wp_dequeue_script( 'greensock' );
         wp_dequeue_script( 'layerslider' );
@@ -95,9 +96,10 @@ EOF;
 
 add_action('wp_head', 'ac_icons_header');
 
-function coll_favicon() {
-	// overide
-}
+// Overrides
+function coll_favicon() {}
+function coll_theme_styling() {}
+
 function ac_icons_header() {
 	$base = trailingslashit(get_stylesheet_directory_uri());
 	echo <<<EOF
@@ -119,6 +121,8 @@ function ac_icons_header() {
 		<meta name="theme-color" content="#000000">
 EOF;
 }
+
+
 
 
 

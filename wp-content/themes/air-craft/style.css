@@ -6,7 +6,24 @@
  Text Domain:  air-craft-www
  */
 
+/*
+ BLACK: #1a1e23 
+ GREY: #53565b
+ DIM YELLOW: #d3cfa8
+ 
+ DULL BLUE: #008cba
+ */
+
+
 /* FULL SCREEN VIDEO */
+
+BODY {
+	background-color: #1a1e23;
+	color: #ffffff; 
+	font-family: Roboto Condensed , Arial, Helvetica;
+}
+
+.ps-container .ps-scrollbar-y { background-color: #53565b !important}
 
 .fullscreen-bg {
   position: fixed;
@@ -35,9 +52,25 @@
 
 div.notouch { width: 100%; height: 100%; position:absolute; top: 0; left: 0;}
 
+/** ? */
+.coll-shortcode-portfolio .items .hentry .info { opacity: 1.0 !important; }
 
-/* LAUNCH SCREEN */
 
+/*******************************
+ RETINA
+********************************/
+
+.site-footer img,
+img.logo-img {
+  zoom: 50%;
+}
+.content-container img { zoom: 50%; }
+
+
+
+/*******************************
+ LAUNCH SCREEN
+********************************/
 
 /*.page-template-launch img { zoom: 35%; }*/
 
@@ -275,5 +308,131 @@ section.launch INPUT[type="submit"]:hover {
 
 /*@media (max-device-width: 736px) { section.launch p.msg { font-weight: 500; } }*/
 
+// News (Air Craft News, Other News), Music (turotials, ableton, logic), Code,  
+
+/*******************************
+ CORE TYPOGRAPHY
+********************************/
+h1, h2, h3, h4, h5, h6 {
+	font-family: "lato", "Helvetica Neue", san-serif !important;
+}
+h1 {
+	line-height: 40px;
+	}
+h4 {
+	font-weight: 300;
+	}
+h1.title-text {
+	/*font-family: "Roboto", "Helvetica Neue", san-serif;
+	font-weight: 100;*/
+}
+.sf-menu a {
+	font-family: Roboto Condensed , Arial, Helvetica;
+	font-size: 18px;
+	font-weight: 900;
+	letter-spacing: 0.02em;
+	text-transform: capitalize;
+	}
+.coll-single .navigation-container .arrow:hover > div.info > label,
+                    .coll-single .navigation-container .arrow:hover > div.info > .title-text
+                    {
+	color: #502b42;
+	}
+.coll-button.coll-accent-color:hover,
+                    .coll-single.lightbox,
+                    .comment-reply-link:hover,
+                    .coll-single .navigation-container .arrow:hover .fa,
+                    .coll-single .title-wrapper .icons .link:hover,
+                    .coll-post-info .categories a:hover
+                    {
+	border-color: #502b42;
+	}
+.coll-single .navigation-container .arrow:hover .fa,
+                    .coll-button.coll-accent-color:hover,
+                    .comment-reply-link:hover,
+                    .coll-single .title-wrapper .icons .link:hover,
+                    .coll-shortcode-portfolio .items .hentry .wrapper .under
+                    {
+	background-color: #502b42;
+	}
+
+
+/*******************************
+ INDEX, ARCHIVE
+ ********************************/
+
+BODY.archive .color-overlay,
+BODY.blog 	.color-overlay { opacity: 0.0 !important}
+
+ARTICLE H2.title,
+ARTICLE H2.title A {
+	color: #d3cfa8;
+	
+	/*font-family: "lato", "Helvetica Neue", san-serif !important;*/
+	
+	font-family: "Roboto", "Helvetica Neue", san-serif;
+	font-weight: 300;
+	/*text-transform: uppercase;*/
+	font-size: 2.2rem;
+	letter-spacing: -1px;
+	word-spacing: 0.2rem;
+	line-height: 2.6rem;
+}
+
+.coll-post-list article.hentry .title {
+    margin-top: 1rem !important;
+ }
+/* Blog post date */
+.coll-section-divider > span.text, .coll-section-divider > span.text A { color: #53565b !important; }
+.coll-section-divider > span.line > span.color { background-color: #53565b; }
+
+.post-meta, .post-meta A { color: #53565b !important; border: none !important}
+
+.coll-post-list article.hentry {
+    padding: 0px 0 !important;
+}
+
+A.more-link {
+    font-family        : inherit !important;
+    font-size          : 16px;
+    display: inline-block;
+    padding            : 1.0em 0em;
+    font-weight        : 900;
+    text-transform     : uppercase;
+    letter-spacing     : 1.5px;
+    color              : #d3cfa8;
+    white-space        : nowrap;
+    margin-bottom      : 1em;
+}
+
+.coll-post-list article.hentry .content { padding-bottom: 20px !important;}
+
+
+/*******************************
+ SINGLE
+ ********************************/
+
+BODY.single .title-wrapper .title-text { 
+	color: #d3cfa8 !important;
+	max-width: 720px;
+	font-family: "Roboto", "Helvetica Neue", san-serif !important;
+	font-weight: 300 !important;
+	font-size: 2.2rem;
+	letter-spacing: -1px;
+	word-spacing: 0.2rem;
+	line-height: 2.6rem;
+}
+.coll-single .title-wrapper .icons .link:hover {
+    border-color     : #53565b;
+    color            : #FFF;
+    background-color : #53565b;
+}
+
+
+BODY.single .color-overlay { opacity: 0.55 !important}
+BODY.single .title-wrapper { position: relative; top: 0px;}
+BODY.single .post-meta { position: relative; top: -40px; }
+BODY.single .post-meta .by-author { color: #53565b !important; }
+BODY.single .post-meta .icons A { color: #d3cfa8 !important; }
 
 

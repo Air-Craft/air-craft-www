@@ -1622,10 +1622,6 @@ ______________________________________________________________
     letter-spacing : -0.04em;
 }
 
-.coll-post-list article.hentry .title a {
-    color : #222;
-}
-
 .coll-post-list .post-meta {
     display        : table;
     width          : 100%;
