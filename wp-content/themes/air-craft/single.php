@@ -46,15 +46,15 @@ if (have_posts()) :
 						<h1 class="title-text"><?php the_title(); ?></h1>
 
                         <div class="post-meta">
-                            <!-- <div class="author-meta">
+                            <div class="author-meta">
                                 <div class="wrapper">
-                                    <div class="image"><?php echo get_avatar(get_the_author_meta('ID'), 100); ?></div>
+                                    <!-- <div class="image"><?php echo get_avatar(get_the_author_meta('ID'), 100); ?></div> -->
                                     <div class="text">
                                     <span class="by-author"><?php _e('By ', 'framework');
                                         the_author(); ?></span>
                                     </div>
                                 </div>
-                            </div> -->
+                            </div>
                             <ul class="icons">
                                 <li><a class="link"
                                        target="_blank"
@@ -111,7 +111,7 @@ if (have_posts()) :
 
                             ?>
                             <footer class="coll-post-info">
-                                <?php if (has_category()) { ?>
+                                <?php if (false && has_category()) { ?>
                                     <div class="categories">
                                         <span class="caption"><?php _e('Categories ', 'framework'); ?></span>
                                         <span class="list"><?php the_category(' '); ?></span>
@@ -139,11 +139,11 @@ if (have_posts()) :
                     <div class="navigation-container large-10 large-offset-2 medium-offset-2 medium-10">
                         <div class="row">
                             <div class="previous large-6 medium-6 columns">
-                                <?php if (get_next_post()) : $pID = get_next_post()->ID; ?>
+                                <?php if (get_previous_post()) : $pID = get_previous_post()->ID; ?>
                                     <a class="arrow" href="<?php echo get_permalink($pID); ?>">
                                         <div class="icon"><i class="fa fa-long-arrow-left"></i></div>
                                         <div class="info">
-                                            <label><?php _e('Next', 'framework'); ?></label>
+                                            <label><?php _e('Previous', 'framework'); ?></label>
 
                                             <h3 class="title-text"><?php echo get_the_title($pID); ?></h3>
                                         </div>
@@ -152,17 +152,15 @@ if (have_posts()) :
                                 <?php endif; ?>
                             </div>
                             <div class="next large-6 medium-6 columns">
-                                <?php if (get_previous_post()) : $pID = get_previous_post()->ID; ?>
+                                <?php if (get_next_post()) : $pID = get_next_post()->ID; ?>
 
                                     <a class="arrow" href="<?php echo get_permalink($pID); ?>">
                                         <div class="icon"><i class="fa fa-long-arrow-right"></i></div>
                                         <div class="info">
-                                            <label><?php _e('Previous', 'framework'); ?></label>
+                                            <label><?php _e('Next', 'framework'); ?></label>
 
                                             <h3 class="title-text"><?php echo get_the_title($pID); ?></h3>
                                         </div>
-
-
                                     </a>
                                 <?php endif; ?>
                             </div>

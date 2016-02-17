@@ -31,7 +31,6 @@ $slidein = (
     (is_home() && has_post_thumbnail(get_option('page_for_posts')))
 ) ? $slidein : '';
 
-
 $fullwidth = ot_get_option('coll_header_fullwidth');
 $fullwidth = ($fullwidth) ? '' : 'row';
 $logourl = trailingslashit(get_stylesheet_directory_uri()).'img/AC-Logo-nav.png';// ot_get_option('coll_site_logo');

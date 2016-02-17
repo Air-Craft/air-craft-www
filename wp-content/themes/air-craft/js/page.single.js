@@ -61,7 +61,7 @@
             	 * HKS: Shorter height and different parallax 
             	 */
                 // resize thumb container
-                _section.first().height(260);//$wndw.height() * 0.8);
+                _section.first().height(300);//$wndw.height() * 0.8);
 
                 // resize image
                 var _rw = _section.first().width() / _content.image.w,

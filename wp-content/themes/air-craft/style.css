@@ -7,13 +7,17 @@
  */
 
 /*
- BLACK: #1a1e23 
- GREY: #53565b
+ "BLACK": #1a1e23 
+ "WHITE": #fffce9
+ GREY: #53565b 
+ BRIGHT YELLOW: #fffce9
  DIM YELLOW: #d3cfa8
- 
+ MORE DIM YELLOW: #d4d2c1
+ PURPLE: #793d5b
  DULL BLUE: #008cba
  */
 
+/** NEXT: Nav, Home::main, working down... */ 
 
 /* FULL SCREEN VIDEO */
 
@@ -21,6 +25,11 @@ BODY {
 	background-color: #1a1e23;
 	color: #ffffff; 
 	font-family: Roboto Condensed , Arial, Helvetica;
+}
+
+A { color: #008cba !important;}
+A:hover { 
+	color: #008cba !important;  text-decoration: underline;
 }
 
 .ps-container .ps-scrollbar-y { background-color: #53565b !important}
@@ -55,17 +64,36 @@ div.notouch { width: 100%; height: 100%; position:absolute; top: 0; left: 0;}
 /** ? */
 .coll-shortcode-portfolio .items .hentry .info { opacity: 1.0 !important; }
 
-
-/*******************************
- RETINA
-********************************/
-
 .site-footer img,
 img.logo-img {
   zoom: 50%;
 }
 .content-container img { zoom: 50%; }
 
+
+/*******************************
+ STRUCTURE
+********************************/
+
+.site-footer {
+    background-color: none !important;
+}
+.site-footer .row {
+	border-top: 1px solid #53565b;
+	padding: 0.5rem 0 0.7rem;
+}
+.site-footer .row > * { margin: 0 auto; text-align: center;}
+.site-footer .copyright { 
+	margin: 0;
+	width: 100%;
+	text-align: right;
+	font-family: "Roboto", "Helvetica Neue", san-serif;
+	font-weight: 400;
+	font-size: 0.65em;
+	color: #53565b; 
+}
+.site-footer .logo { margin-top: -8px; }
+.site-footer .logo IMG { width: auto; opacity: 1;}
 
 
 /*******************************
@@ -308,26 +336,32 @@ section.launch INPUT[type="submit"]:hover {
 
 /*@media (max-device-width: 736px) { section.launch p.msg { font-weight: 500; } }*/
 
-// News (Air Craft News, Other News), Music (turotials, ableton, logic), Code,  
-
-/*******************************
- CORE TYPOGRAPHY
-********************************/
-h1, h2, h3, h4, h5, h6 {
-	font-family: "lato", "Helvetica Neue", san-serif !important;
+/** 
+ *	CORE TYPOGRAPHY 
+ */
+	 
+ARTICLE H1, ARTICLE H2, ARTICLE H3, ARTICLE H4, ARTICLE H5, ARTICLE H6 {
+	color: #d3cfa8 !important;
+	font-family: "lato", "Helvetica Neue", sans-serif;
 }
 h1 {
 	line-height: 40px;
-	}
+}
+h3 {
+	font-size: 2em;
+}
 h4 {
 	font-weight: 300;
-	}
+}
+h5 {
+	font-size: 1.3em;
+}
 h1.title-text {
 	/*font-family: "Roboto", "Helvetica Neue", san-serif;
 	font-weight: 100;*/
 }
 .sf-menu a {
-	font-family: Roboto Condensed , Arial, Helvetica;
+	font-family: "Roboto Condensed", "Helvetica Neue", sans-serif;
 	font-size: 18px;
 	font-weight: 900;
 	letter-spacing: 0.02em;
@@ -362,28 +396,35 @@ h1.title-text {
  ********************************/
 
 BODY.archive .color-overlay,
-BODY.blog 	.color-overlay { opacity: 0.0 !important}
+BODY.blog .color-overlay { opacity: 0.0 !important}
+
+.coll-single .title-wrapper .title-text {
+	font-family: "lato", "Helvetica Neue", sans-serif;
+	font-weight: 300;
+	opacity: 0.8; 
+	color: #fffce9 !important;
+	font-size: 3.5em;
+}
 
 ARTICLE H2.title,
 ARTICLE H2.title A {
-	color: #d3cfa8;
+	color: #d4d2c1 !important;
 	
 	/*font-family: "lato", "Helvetica Neue", san-serif !important;*/
-	
 	font-family: "Roboto", "Helvetica Neue", san-serif;
-	font-weight: 300;
-	/*text-transform: uppercase;*/
-	font-size: 2.2rem;
+	font-weight: 200;
+	text-transform: uppercase;
+	font-size: 1.3em;
 	letter-spacing: -1px;
 	word-spacing: 0.2rem;
-	line-height: 2.6rem;
+	line-height: 1.7rem;
 }
 
 .coll-post-list article.hentry .title {
-    margin-top: 1rem !important;
+    margin-top: 0.5em !important;
  }
 /* Blog post date */
-.coll-section-divider > span.text, .coll-section-divider > span.text A { color: #53565b !important; }
+.coll-section-divider > span.text, .coll-section-divider > span.text A { color: #53565b !important; position: relative; top: 0.14rem}
 .coll-section-divider > span.line > span.color { background-color: #53565b; }
 
 .post-meta, .post-meta A { color: #53565b !important; border: none !important}
@@ -407,32 +448,113 @@ A.more-link {
 
 .coll-post-list article.hentry .content { padding-bottom: 20px !important;}
 
+/** Tags & Meta **/
+.coll-post-info A { 
+	border: 0 !important; 
+    color: #ffffff !important;
+    background-color: #53565b;
+}
+.coll-post-info a:hover {
+	background-color: #793d5b !important;
+	text-decoration: none !important;
+}
+
 
 /*******************************
  SINGLE
  ********************************/
 
 BODY.single .title-wrapper .title-text { 
-	color: #d3cfa8 !important;
+	color: #fffce9 !important;
 	max-width: 720px;
 	font-family: "Roboto", "Helvetica Neue", san-serif !important;
 	font-weight: 300 !important;
-	font-size: 2.2rem;
+	font-size: 2.0em;
 	letter-spacing: -1px;
 	word-spacing: 0.2rem;
-	line-height: 2.6rem;
+	line-height: 2rem;
+	text-transform: uppercase;	
 }
+
 .coll-single .title-wrapper .icons .link:hover {
     border-color     : #53565b;
     color            : #FFF;
     background-color : #53565b;
 }
 
+BODY.single .coll-single .copy-container { margin-top: 10px}
+BODY.single .coll-section-divider { margin-bottom: 28px !important;}
+BODY.single .color-overlay { opacity: 0.45 !important}
+BODY.single .title-wrapper { position: relative; top: 20px;}
+BODY.single .post-meta { position: relative; top: -10px; }
+BODY.single .post-meta .author-meta { position: relative; top: -10px}
+BODY.single .post-meta .text { padding-left: 0 !important;}
+BODY.single .post-meta .by-author { 
+	color: #53565b !important;
+	opacity: 1; 
+	font-family: "lato", "Helvetica Neue", sans-serif;
+	font-size: 13px;
+    font-weight: 500;
+    /*text-transform: uppercase;*/ 
+    letter-spacing: 0.1em; 
+}
+BODY.single .post-meta .icons A { color: #fffce9 !important; opacity: 0.8}
 
-BODY.single .color-overlay { opacity: 0.55 !important}
-BODY.single .title-wrapper { position: relative; top: 0px;}
-BODY.single .post-meta { position: relative; top: -40px; }
-BODY.single .post-meta .by-author { color: #53565b !important; }
-BODY.single .post-meta .icons A { color: #d3cfa8 !important; }
+BODY.single .post-date { margin: 0 !important; }
+BODY.single .content-container > .row { position: relative; top: -40px}
+
+/* MORE POSTS */
+.coll-single .navigation-container .arrow .fa {
+	color: #d3cfa8 !important;
+	border-color: #d3cfa8 !important;
+}
+.coll-single .navigation-container .arrow:hover .fa {
+	color: #1a1e23 !important;
+	background-color: #d3cfa8 !important;
+}
+.coll-single .navigation-container .arrow > div > .title-text {
+    font: 1.3em "Lato", "Helvetica Neue", san-serif;
+    color: #d3cfa8;
+    opacity: 0.7; 
+    font-weight: 300;
+}
+.coll-single .navigation-container .arrow:hover > div > .title-text {
+	opacity: 1.0;
+	color: #d3cfa8 !important;
+}
+
+
+/*******************************
+ SIDEBAR
+ ********************************/
+.sidebar-container {
+     margin-left: 0em; 
+}
+.sidebar-container .widget.widget_search #searchform #s {
+	background-color: #d4ccc1;
+	padding: 0.5rem 1.8rem 0.5rem 0.7rem;
+	height: 2rem;
+	border: 0 !important;
+	color: #1a1e23;
+}
+.sidebar-container .widget.widget_search #searchform #s:focus {
+    color        : #1a1e23 !important;
+    background   : #d4ccc1 !important;
+}
+
+
+.sidebar-container .widget.widget_search #searchform > div:after {
+    content: '\f002';
+    position: absolute;
+    right: 0.8rem;
+    top: 0.55rem;
+    font-family: FontAwesome;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: normal;
+    color: #1a1e23;
+    line-height: 1;
+    -webkit-font-smoothing: antialiased;
+}
 
 
