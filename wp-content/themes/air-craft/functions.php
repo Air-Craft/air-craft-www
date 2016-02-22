@@ -25,7 +25,9 @@ add_action('wp_print_scripts', function () {
 	wp_deregister_script( 'page.single' );
 	wp_enqueue_script( 'page.single', trailingslashit(get_stylesheet_directory_uri()) . 'js/page.single.js', '', null, true );
 		
-	
+	if (is_page_template('home-sabre.php')) {
+		wp_enqueue_script( 'page.sections', trailingslashit(get_stylesheet_directory_uri()) . 'js/page.sections.js', '', null, true );	
+	}
 	if (is_page_template('launch.php')) {
 		// For now this is just launch
 		wp_enqueue_script('ac_site', trailingslashit(get_stylesheet_directory_uri()).'js/site.js', array('jquery', 'ac_autoplay_detect_script', 'youtube_iframe_api'), '1.0', false);

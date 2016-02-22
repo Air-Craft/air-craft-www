@@ -165,7 +165,7 @@ section.launch A#video-play-btn {
 	margin: 20px auto;
 	display: block;
 	text-align: center;
- 	color: #fffbe0;
+ 	color: #fffbe0 !important;
 	 	
 	font-family: "lato", "Helvetica Neue", sans-serif;
 	font-size: 25px;
@@ -288,7 +288,7 @@ section.launch INPUT[type="submit"]:hover {
 	margin: 0;
 	padding: 0.5em 0.36em;
 	font-size: 1.5em;
-	color: #fffbe0;
+	color: #fffbe0 !important;
 	position: relative;
 	top: 0.15em;
 }

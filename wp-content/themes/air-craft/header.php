@@ -25,6 +25,7 @@ global $coll_is_mobile;
 $slidein = (ot_get_option('coll_header_slide')) ? ot_get_option('coll_header_slide') : '';
 $slidein = (!$coll_is_mobile) ? $slidein : '';
 $slidein = (
+	is_page_template('home-sabre.php') ||
     is_page_template('template-sectioned.php') ||
     is_singular('coll-portfolio') ||
     (is_singular('post') && has_post_thumbnail()) ||
