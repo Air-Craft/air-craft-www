@@ -8,11 +8,17 @@ get_header();
 global $coll_parallax_enabled;
 $sl_main_id = ($coll_parallax_enabled) ? 'id="skrollr-body"' : '';
 global $coll_is_mobile;
+
+$demo_video = ot_get_option('ac-demo-video-link');
+
+$mailchimp_url = ot_get_option('ac-mailchimp-form-url');
+$mailchimp_key = ot_get_option('ac-mailchimp-form-key');
+
 ?>
 
 <div <?php echo $sl_main_id; ?> role="main" class="wrapper common">
 
-<section id="home" class="sabre-home page-section js-coll-window post-62 coll-page-section type-coll-page-section status-publish hentry">
+<section id="home-main" class="sabre-home page-section js-coll-window coll-page-section type-coll-page-section status-publish hentry">
 	<div class="coll-section-background js-coll-parallax"  style="background-color: #d7d7d7" >
 		<div class="coll-bg-video " >
 			<div class="fullscreen-bg">
@@ -35,17 +41,20 @@ global $coll_is_mobile;
 					<h1><img alt="AC Sabre" src="<?php echo trailingslashit(get_theme_root_uri())?>air-craft/img/ac-sabre-text-for-launch-page@2x.png"></h1>
 					<p class="msg">Musical Instrument, Evolved</p>
 					<div class="call-to-action">	
-						<div class="row video"><i class="fa fa-play-circle-o"></i> <div>Watch the Demo</div></div>
+						<a 
+						href="<?php echo $demo_video?>"
+						id="video-play-btn" 
+						class="row video colorbox prevent-underline-on-fa"><i class="fa fa-play-circle-o"></i> <span>Watch the Demo</span></a>
 						<div class="row subscribe">
 							<i class="fa fa-envelope"></i> 
 							<div>
 								<div class="text">Launching Soon</div>
 								<div class="form">
-									<form method="post" action="//air-craft.us11.list-manage.com/subscribe/post?u=c2e364dea4eef797148ed9557&amp;id=ac0d7d90d1">
+									<form method="post" action="<?php echo $mailchimp_url ?>">
 										<input type="email" class="email" name="EMAIL" placeholder="GET NOTIFIED" required />
 										<button type="submit">SUBMIT</button>
 										<div style="position: absolute; left: -5000px;">
-											<input type="text" name="b_c2e364dea4eef797148ed9557_ac0d7d90d1" tabindex="-1" value="">
+											<input type="text" name="<?php echo $mailchimp_key?>" tabindex="-1" value="">
 										</div>
 										<input type="hidden" name="ORIGIN" value="ac-home" />
 									</form>
@@ -58,69 +67,32 @@ global $coll_is_mobile;
 		</div>
 	</div>
 </section>
-<section id="home-quotes" class="page-section  post-207 coll-page-section type-coll-page-section status-publish hentry">
-	<div class="coll-section-background js-coll-parallax"  style="background-color: #fcfbea" ></div>
+<section id="home-description" class="page-section  coll-page-section type-coll-page-section status-publish hentry">
+	<div class="coll-section-background js-coll-parallax"></div>
 	<div class="section-content row ">
-		<div class="columns entry-title coll-hide-title" >
-			<h2 class="title" style="color: #fff">Home: Quotes</h2><h4 class="subtitle" style="color: #fff"></h4>
-		</div>
 		<div class="entry-content columns">
 			<div class="coll-layerslider coll-slideshow">
-				<script data-cfasync="false" type="text/javascript">
-					var lsjQuery = jQuery;
-				</script>
-				<script data-cfasync="false" type="text/javascript">
-					lsjQuery(document).ready(function() {
-						if ( typeof lsjQuery.fn.layerSlider == "undefined") {
-							lsShowNotice('layerslider_2', 'jquery');
-						} else {
-							lsjQuery("#layerslider_2").layerSlider({
-								startInViewport : false,
-								keybNav : false,
-								touchNav : false,
-								skin : 'minimal',
-								navPrevNext : false,
-								hoverPrevNext : false,
-								navStartStop : false,
-								navButtons : false,
-								showCircleTimer : false,
-								thumbnailNavigation : 'disabled',
-								skinsPath : 'http://ac2.localhost/wp-content/plugins/LayerSlider/static/skins/'
-							})
-						}
-					});
-				</script>
-				<div id="layerslider_2" class="ls-wp-container" style="width:800px;height:150px;margin:0 auto;margin-bottom: 0px;">
-					<div class="ls-slide" data-ls="slidedelay:2000;transition2d:1;">
-						<h1 class="ls-l" style="top:0px;left:0px;white-space: nowrap;" data-ls="durationin:500;durationout:500;showuntil:1500;">Awesomeness, pure awesomeness... </h1>
-						<p class="ls-l" style="top:38px;left:8px;white-space: nowrap;">
-							- App Store Reviewer
-						</p>
-					</div>
-					<div class="ls-slide" data-ls="slidedelay:2000; transition2d: all;">
-						<h1 class="ls-l" style="top:-1px;left:3px;white-space: nowrap;">A seriously unique and sophisticated musical instrument </h1>
-						<p class="ls-l" style="top:32px;left:17px;white-space: nowrap;">
-							- Mr Reviewer
-						</p>
-					</div>
+				<div class="quote">
+					<h3>It’s great for controlling fat, nasty bass patches...</h3>
+					<p>&ndash; App Store Reviewer</p>
 				</div>
-				<script type="text/javascript">
-					jQuery(document).ready(function($) {
-						var _slider = $("#layerslider_2");
-						var _container = _slider.parent();
-
-						// pause slider on scroll
-						if (_container.hasClass("coll-slideshow")) {
-							window.addEventListener("coll.panim.start", function() {
-								_slider.layerSlider("stop");
-							})
-							window.addEventListener("coll.panim.end", function() {
-								_slider.layerSlider("start");
-							})
-						}
-
-					});
-				</script>
+				<div class="description">
+					<h2>Your MIDI Controller are Boring</h2>
+					<p>The controllers we use for haven’t changed in 30 years. 
+						Buttons, knobs, and faders &ndash; handy for tweaking but linear and lifeless 
+						for performance and riff-making. AC Sabre is a MIDI controller revolution. 
+						Experience a whole new dimension to your sound library that will have you giddy 
+						like the first time all over again.</p>
+					<h2>Coming Soon to the App Store</h2>
+					<form method="post" action="<?php echo $mailchimp_url ?>">
+						<input type="email" class="email" name="EMAIL" placeholder="YOUR EMAIL" required />
+						<button type="submit">GET NOTIFIED</button>
+						<div style="position: absolute; left: -5000px;">
+							<input type="text" name="<?php echo $mailchimp_key?>" tabindex="-1" value="">
+						</div>
+						<input type="hidden" name="ORIGIN" value="ac-home" />
+					</form>
+				</div>
 			</div>
 		</div>
 	</div>
@@ -231,154 +203,6 @@ global $coll_is_mobile;
 				</p>
 				<p>
 			</div>
-		</div>
-	</div>
-</section>
-<section id="video-demos" class="page-section js-coll-window-min post-227 coll-page-section type-coll-page-section status-publish hentry">
-	<div class="coll-section-background js-coll-parallax"  style="background-color: #fffff4" ></div>
-	<div class="section-content row ">
-		<div class="columns entry-title coll-hide-title" >
-			<h2 class="title" style="color: #fff">Video Demos Portfolio</h2><h4 class="subtitle" style="color: #fff"></h4>
-		</div>
-		<div class="entry-content columns">
-			<h1 style="text-align: center;"><span style="color: #333333;">Video Demos</span></h1>
-			<p style="text-align: center;">
-				<span style="font-size: 16px; line-height: 1.5;">
-					<div class="coll-shortcode-portfolio ">
-						<div class="items js-coll-portfolio">
-							<article id="easy-modal-jazz-with-the-sound-wand"
-							class="post-229 coll-portfolio type-coll-portfolio status-publish hentry coll-portfolio-category-video-demos video-demos large-4 medium-6 columns"
-							data-coll-hover-opacity="1">
-								<div class="wrapper">
-									<div class="holder"><img class="hidden"
-										width="200"
-										height="200"
-										alt="Easy Modal Jazz with The Sound Wand"
-										src="http://ac2.localhost/wp-content/uploads/2015/06/Hari-Karam-Gigging-5-avatar-e1435749540984.jpg"
-										/>
-										<div class="inner">
-											<a class="thumb" href="http://ac2.localhost/portfolio/easy-modal-jazz-with-the-sound-wand/" ><div class="color under" style="background-color: #fff;"></div><img class="visible"
-											width="200"
-											height="200"
-											alt="Easy Modal Jazz with The Sound Wand"
-											src="http://ac2.localhost/wp-content/uploads/2015/06/Hari-Karam-Gigging-5-avatar-e1435749540984.jpg"
-											/><div class="color above"></div>
-											<div class="info">
-												<div class="vcenter">
-													<h3 class="title" style="font-size:16px" >_Easy Modal Jazz with The Sound Wand</h3>
-												</div>
-											</div></a>
-										</div>
-									</div>
-								</div>
-							</article>
-							<article id="synthesizer-solo-with-sound-wand-pro"
-							class="post-226 coll-portfolio type-coll-portfolio status-publish hentry coll-portfolio-category-video-demos video-demos large-4 medium-6 columns"
-							data-coll-hover-opacity="1">
-								<div class="wrapper">
-									<div class="holder"><img class="hidden"
-										width="1024"
-										height="683"
-										alt="Synthesizer Solo with Sound Wand Pro"
-										src="http://ac2.localhost/wp-content/uploads/2015/06/Hari-Karam-Gigging-4.jpg"
-										/>
-										<div class="inner">
-											<a class="thumb js-coll-port-lightbox" href="http://ac2.localhost/portfolio/synthesizer-solo-with-sound-wand-pro/" ><div class="color under" style="background-color: #fff;"></div><img class="visible"
-											width="1024"
-											height="683"
-											alt="Synthesizer Solo with Sound Wand Pro"
-											src="http://ac2.localhost/wp-content/uploads/2015/06/Hari-Karam-Gigging-4.jpg"
-											/><div class="color above"></div>
-											<div class="info">
-												<div class="vcenter">
-													<h3 class="title" style="font-size:16px" >_Synthesizer Solo with Sound Wand Pro</h3>
-												</div>
-											</div></a>
-										</div>
-									</div>
-								</div>
-							</article>
-							<article id="the-sound-wand-from-classical-to-dubstep"
-							class="post-236 coll-portfolio type-coll-portfolio status-publish hentry coll-portfolio-category-video-demos video-demos large-4 medium-6 columns"
-							data-coll-hover-opacity="1">
-								<div class="wrapper">
-									<div class="holder"><img class="hidden"
-										width="266"
-										height="678"
-										alt="AC Sabre &#8211; From Classical to Dubstep&#8230;"
-										src="http://ac2.localhost/wp-content/uploads/2015/06/Hari-Karam-Gigging-6-e1435750490825.jpg"
-										/>
-										<div class="inner">
-											<a class="thumb" href="http://ac2.localhost/portfolio/the-sound-wand-from-classical-to-dubstep/" ><div class="color under" style="background-color: #fff;"></div><img class="visible"
-											width="266"
-											height="678"
-											alt="AC Sabre &#8211; From Classical to Dubstep&#8230;"
-											src="http://ac2.localhost/wp-content/uploads/2015/06/Hari-Karam-Gigging-6-e1435750490825.jpg"
-											/><div class="color above"></div>
-											<div class="info">
-												<div class="vcenter">
-													<h3 class="title" style="font-size:16px" >_AC Sabre &#8211; From Classical to Dubstep&#8230;</h3>
-												</div>
-											</div></a>
-										</div>
-									</div>
-								</div>
-							</article>
-							<article id="blues-showdown-iphone-holds-its-own-with-big-rock-guitar-full-version"
-							class="post-239 coll-portfolio type-coll-portfolio status-publish hentry coll-portfolio-category-video-demos video-demos large-4 medium-6 columns"
-							data-coll-hover-opacity="1">
-								<div class="wrapper">
-									<div class="holder"><img class="hidden"
-										width="1024"
-										height="683"
-										alt="Blues Showdown: iPhone Holds Its Own With BIG Rock Guitar (full version)"
-										src="http://ac2.localhost/wp-content/uploads/2015/06/Hari-Karam-Gigging-1.jpg"
-										/>
-										<div class="inner">
-											<a class="thumb" href="http://ac2.localhost/portfolio/blues-showdown-iphone-holds-its-own-with-big-rock-guitar-full-version/" ><div class="color under" style="background-color: #fff;"></div><img class="visible"
-											width="1024"
-											height="683"
-											alt="Blues Showdown: iPhone Holds Its Own With BIG Rock Guitar (full version)"
-											src="http://ac2.localhost/wp-content/uploads/2015/06/Hari-Karam-Gigging-1.jpg"
-											/><div class="color above"></div>
-											<div class="info">
-												<div class="vcenter">
-													<h3 class="title" style="font-size:16px" >_Blues Showdown: iPhone Holds Its Own With BIG Rock Guitar (full version)</h3>
-												</div>
-											</div></a>
-										</div>
-									</div>
-								</div>
-							</article>
-							<article id="classical-instruments-articulations-with-ac-sabre"
-							class="post-238 coll-portfolio type-coll-portfolio status-publish hentry coll-portfolio-category-video-demos video-demos large-4 medium-6 columns"
-							data-coll-hover-opacity="1">
-								<div class="wrapper">
-									<div class="holder"><img class="hidden"
-										width="1024"
-										height="683"
-										alt="Classical Instruments &#038; Articulations with AC Sabre"
-										src="http://ac2.localhost/wp-content/uploads/2015/06/Hari-Karam-Gigging-2.jpg"
-										/>
-										<div class="inner">
-											<a class="thumb" href="http://ac2.localhost/portfolio/classical-instruments-articulations-with-ac-sabre/" ><div class="color under" style="background-color: #fff;"></div><img class="visible"
-											width="1024"
-											height="683"
-											alt="Classical Instruments &#038; Articulations with AC Sabre"
-											src="http://ac2.localhost/wp-content/uploads/2015/06/Hari-Karam-Gigging-2.jpg"
-											/><div class="color above"></div>
-											<div class="info">
-												<div class="vcenter">
-													<h3 class="title" style="font-size:16px" >_Classical Instruments &#038; Articulations with AC Sabre</h3>
-												</div>
-											</div></a>
-										</div>
-									</div>
-								</div>
-							</article>
-						</div>
-					</div></span>
-			</p>
 		</div>
 	</div>
 </section>

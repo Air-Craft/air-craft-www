@@ -24,13 +24,14 @@ add_action('wp_print_scripts', function () {
 	wp_dequeue_script( 'page.single' );
 	wp_deregister_script( 'page.single' );
 	wp_enqueue_script( 'page.single', trailingslashit(get_stylesheet_directory_uri()) . 'js/page.single.js', '', null, true );
-		
+	
+	// NOTE: using the CodeKit minified version
+	wp_enqueue_script('ac_site', trailingslashit(get_stylesheet_directory_uri()).'js/site-ck.js', array('jquery', 'ac_autoplay_detect_script', 'youtube_iframe_api'), '1.0', false);
+			
 	if (is_page_template('home-sabre.php')) {
 		wp_enqueue_script( 'page.sections', trailingslashit(get_stylesheet_directory_uri()) . 'js/page.sections.js', '', null, true );	
 	}
 	if (is_page_template('launch.php')) {
-		// For now this is just launch
-		wp_enqueue_script('ac_site', trailingslashit(get_stylesheet_directory_uri()).'js/site.js', array('jquery', 'ac_autoplay_detect_script', 'youtube_iframe_api'), '1.0', false);
 		
 		
 		wp_dequeue_script('page.sections');
@@ -154,7 +155,7 @@ function ac_custom_theme_options()
 	$section_entry = array( 'id' => 'air-craft', 'title' => 'Air Craft');
 	
 	$settings_entries = array(
-		array(
+		/*array(
             'id' => 'ac-background-video-embed',
             'label' => 'BG Video Embed',
 			'desc' => 'YouTube embed code for background video. Must include jsapi=1',
@@ -166,11 +167,11 @@ function ac_custom_theme_options()
             'taxonomy' => '',
             'min_max_step' => '',
             'class' => ''
-   		),
+   		),*/
    		array(
-            'id' => 'ac-mobile-video-link',
-            'label' => 'Linked Video',
-			'desc' => 'Link to video page for mobile (since it doesnt support autoplay)',
+            'id' => 'ac-demo-video-link',
+            'label' => 'Demo Video Link',
+			'desc' => 'Link to video on youtube or whatever',
 			'std' => '',
 			'type' => 'text',
 			'section' => 'air-craft',
@@ -184,6 +185,58 @@ function ac_custom_theme_options()
             'id' => 'ac-public-email',
             'label' => 'Public Email',
 			'desc' => 'Email contact for Launch page, etc.',
+			'std' => '',
+			'type' => 'text',
+			'section' => 'air-craft',
+			'rows' => '',
+            'post_type' => '',
+            'taxonomy' => '',
+            'min_max_step' => '',
+            'class' => ''
+   		),
+   		array(
+            'id' => 'ac-facebook-page',
+            'label' => 'Facebook Page',
+			'desc' => '',
+			'std' => '',
+			'type' => 'text',
+			'section' => 'air-craft',
+			'rows' => '',
+            'post_type' => '',
+            'taxonomy' => '',
+            'min_max_step' => '',
+            'class' => ''
+   		),
+   		array(
+            'id' => 'ac-twitter-page',
+            'label' => 'Twitter Page',
+			'desc' => '',
+			'std' => '',
+			'type' => 'text',
+			'section' => 'air-craft',
+			'rows' => '',
+            'post_type' => '',
+            'taxonomy' => '',
+            'min_max_step' => '',
+            'class' => ''
+   		),
+   		array(
+            'id' => 'ac-mailchimp-form-url',
+            'label' => 'Mailchimp Form URL',
+			'desc' => '',
+			'std' => '',
+			'type' => 'text',
+			'section' => 'air-craft',
+			'rows' => '',
+            'post_type' => '',
+            'taxonomy' => '',
+            'min_max_step' => '',
+            'class' => ''
+   		),
+   		array(
+            'id' => 'ac-mailchimp-form-key',
+            'label' => 'Mailchimp Form Key',
+			'desc' => '',
 			'std' => '',
 			'type' => 'text',
 			'section' => 'air-craft',

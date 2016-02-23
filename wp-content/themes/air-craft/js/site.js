@@ -2,6 +2,11 @@
 jQuery(function ($) {
     "use strict";
     
+    // VIDEO LIGHTBOX
+    console.log("VIDEO LIGHTBOX");
+    console.log($("a.colorbox"));
+    $("a.colorbox").colorbox({iframe:true, width:"95%", height:"95%"});
+    
     
     // JUST FOR LAUNCH NOW
     if (document.body.className.indexOf('page-template-launch') == -1) {
@@ -10,8 +15,6 @@ jQuery(function ($) {
     console.log("JSing LAUNCH template...");
     
     
-    // VIDEO LIGHTBOX
-    $("a.colorbox").colorbox({iframe:true, width:"95%", height:"95%"});
     // $("a.flare").peFlareLightbox();
     
     

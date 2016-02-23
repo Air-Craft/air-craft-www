@@ -1,0 +1,1 @@
+jQuery(function(e){"use strict";console.log("VIDEO LIGHTBOX");console.log(e("a.colorbox"));e("a.colorbox").colorbox({iframe:!0,width:"95%",height:"95%"});if(document.body.className.indexOf("page-template-launch")==-1)return;console.log("JSing LAUNCH template...")});

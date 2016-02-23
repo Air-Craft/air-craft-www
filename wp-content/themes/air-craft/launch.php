@@ -48,7 +48,7 @@ $obfuscated_email = antispambot(ot_get_option('ac-public-email'));
 
 </div></section>
 
-<div id="launch-footer"><span>Copyright &#169; 2015 Air Craft Media LTD, London UK</span>
+<div id="launch-footer"><span>Copyright &#169; 2015-2016 Air Craft Media LTD, London UK</span>
 	<a href="http://facebook.com/AirCraftHQ" target="_blank" class="fa fa-facebook"></a>
 	<a href="http://twitter.com/AirCraftHQ" target="_blank" class="fa fa-twitter"></a>
 	<a href="mailto:<?php echo $obfuscated_email ?>" class="fa fa-envelope"></a>

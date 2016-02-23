@@ -41,10 +41,13 @@ $logopos = ($logopos) ? $logopos : 'coll-left';
 $menupos = ot_get_option('coll_menu_position');
 $menupos = ($menupos) ? $menupos : 'coll-right';
 
+$facebook_page = ot_get_option('ac-facebook-page');
+$twitter_page = ot_get_option('ac-twitter-page');
+
 $social_menu =<<<EOF
 <ul class="social sf-menu sf-js-enabled sf-arrows">
-	<li><a target="_blank" href="https://www.facebook.com/AirCraftHQ/"><i class="fa fa-facebook"></i></a></li>
-	<li><a target="_blank" href="https://twitter.com/AirCraftHQ"><i class="fa fa-twitter"></i></a></li>
+	<li><a target="_blank" href="{$facebook_page}"><i class="fa fa-facebook"></i></a></li>
+	<li><a target="_blank" href="{$twitter_page}"><i class="fa fa-twitter"></i></a></li>
 </ul>
 EOF;
 ?>
