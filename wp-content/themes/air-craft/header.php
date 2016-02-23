@@ -40,6 +40,13 @@ $logopos = ot_get_option('coll_logo_position');
 $logopos = ($logopos) ? $logopos : 'coll-left';
 $menupos = ot_get_option('coll_menu_position');
 $menupos = ($menupos) ? $menupos : 'coll-right';
+
+$social_menu =<<<EOF
+<ul class="social sf-menu sf-js-enabled sf-arrows">
+	<li><a target="_blank" href="https://www.facebook.com/AirCraftHQ/"><i class="fa fa-facebook"></i></a></li>
+	<li><a target="_blank" href="https://twitter.com/AirCraftHQ"><i class="fa fa-twitter"></i></a></li>
+</ul>
+EOF;
 ?>
 <header class="site-header <?php if (!empty($slidein)) echo $slidein[0]; ?>">
     <div class="background"></div>
@@ -61,6 +68,8 @@ $menupos = ($menupos) ? $menupos : 'coll-right';
                 'fallback_cb' => ''
 
             ));
+            
+            echo $social_menu;
             ?>
         </nav>
 
@@ -87,6 +96,8 @@ $menupos = ($menupos) ? $menupos : 'coll-right';
                 'fallback_cb' => ''
 
             ));
+            
+            echo $social_menu;
             ?>
         </nav>
     </div>
@@ -112,7 +123,10 @@ $menupos = ($menupos) ? $menupos : 'coll-right';
                 'before' => '',
                 'fallback_cb' => ''
             ));
+            
+            echo $social_menu;
             ?>
+            
         </nav>
     </div>
 </div>

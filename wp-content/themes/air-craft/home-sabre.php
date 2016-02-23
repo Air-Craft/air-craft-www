@@ -12,57 +12,52 @@ global $coll_is_mobile;
 
 <div <?php echo $sl_main_id; ?> role="main" class="wrapper common">
 
-	<section id="home" class="page-section js-coll-window post-62 coll-page-section type-coll-page-section status-publish hentry">
-		<div class="coll-section-background js-coll-parallax"  style="background-color: #d7d7d7" >
-			<div class="coll-bg-video " >
-				<div class="fullscreen-bg">
-					<video autoplay loop muted preload="auto">
-						<source src="/wp-content/uploads/AC-Home-Video.mp4" type="video/mp4" />
-						<source src="/wp-content/uploads/AC-Home-Video.mp4" type="video/ogg" />
-						<source src="/wp-content/uploads/AC-Home-Video.mp4" type="video/webm" />
-					</video>
-				</div>
-			</div><div class="coll-bg-video-overlay"></div>
-			<div class="coll-bg-video-mute">
-				<a href="#" class="js-coll-video-sound"><i class="fa"></i></a>
+<section id="home" class="sabre-home page-section js-coll-window post-62 coll-page-section type-coll-page-section status-publish hentry">
+	<div class="coll-section-background js-coll-parallax"  style="background-color: #d7d7d7" >
+		<div class="coll-bg-video " >
+			<div class="fullscreen-bg">
+				<video autoplay loop muted preload="auto">
+					<source src="/wp-content/uploads/AC-Home-Video.mp4" type="video/mp4" />
+					<source src="/wp-content/uploads/AC-Home-Video.mp4" type="video/ogg" />
+					<source src="/wp-content/uploads/AC-Home-Video.mp4" type="video/webm" />
+				</video>
+			</div>
+		</div><div class="coll-bg-video-overlay"></div>
+		<div class="coll-bg-video-mute">
+			<a href="#" class="js-coll-video-sound"><i class="fa"></i></a>
+		</div>
+	</div>
+	<div class="section-content row ">
+		<div class="entry-content columns">
+			<div class="coll-middle ">
+				<div class="inner">
+					<img class="logo" alt="Air Craft" src="<?php echo trailingslashit(get_theme_root_uri())?>air-craft/img/ac-logo-for-launch-page@2x.png">
+					<h1><img alt="AC Sabre" src="<?php echo trailingslashit(get_theme_root_uri())?>air-craft/img/ac-sabre-text-for-launch-page@2x.png"></h1>
+					<p class="msg">Musical Instrument, Evolved</p>
+					<div class="call-to-action">	
+						<div class="row video"><i class="fa fa-play-circle-o"></i> <div>Watch the Demo</div></div>
+						<div class="row subscribe">
+							<i class="fa fa-envelope"></i> 
+							<div>
+								<div class="text">Launching Soon</div>
+								<div class="form">
+									<form method="post" action="//air-craft.us11.list-manage.com/subscribe/post?u=c2e364dea4eef797148ed9557&amp;id=ac0d7d90d1">
+										<input type="email" class="email" name="EMAIL" placeholder="GET NOTIFIED" required />
+										<button type="submit">SUBMIT</button>
+										<div style="position: absolute; left: -5000px;">
+											<input type="text" name="b_c2e364dea4eef797148ed9557_ac0d7d90d1" tabindex="-1" value="">
+										</div>
+										<input type="hidden" name="ORIGIN" value="ac-home" />
+									</form>
+								</div>
+							</div>
+						</div>
+					</div>	
+				</div>	
 			</div>
 		</div>
-		<div class="section-content row ">
-			<div class="columns entry-title coll-hide-title" >
-				<h2 class="title" style="color: #fff">Home</h2><h4 class="subtitle" style="color: #fff"></h4>
-			</div>
-			<div class="entry-content columns">
-				<div class="coll-middle ">
-					<div class="inner">
-						</p>
-						<p>
-							<div class="columns large-6 medium-6 text-left">
-						</p>
-						<h1 style="color:#fff">The AC Sabre</h1>
-						<p style="color:#fff">
-							Movement. Music. Amazing.
-						</p>
-						<p>
-							<a   style="border-radius : 4px; -moz-border-radius:4px; -webkit-border-radius4px;"
-							class="coll-button js-coll-button "
-							href="https://itunes.apple.com/gb/app/sound-wand-midi.../id587658542?mt=8"
-							target="_blank"
-							data-coll-color="#ffffff" data-coll-color-hover="#fff" data-coll-border="1px solid #ffffff" data-coll-border-hover="1px solid #502b42" data-coll-background-color="" data-coll-background-color-hover="#502b42">On the App Store </a>
-						</p>
-						<p>
-							<a   style="border-radius : 4px; -moz-border-radius:4px; -webkit-border-radius4px;"
-							class="coll-button js-coll-button "
-							href="/ac-sabre"
-							target="_self"
-							data-coll-color="#ffffff" data-coll-color-hover="#fff" data-coll-border="1px solid #ffffff" data-coll-border-hover="1px solid #502b42" data-coll-background-color="" data-coll-background-color-hover="#502b42">Watch Demos</a>
-						</p>
-						<p>
-					</div></p>
-					<p>
-				</div>
-			</div>
-		</div>
-</div></section>
+	</div>
+</section>
 <section id="home-quotes" class="page-section  post-207 coll-page-section type-coll-page-section status-publish hentry">
 	<div class="coll-section-background js-coll-parallax"  style="background-color: #fcfbea" ></div>
 	<div class="section-content row ">
@@ -493,15 +488,5 @@ global $coll_is_mobile;
 		</div>
 	</div>
 </section>
-
-<footer class="site-footer">
-	<div class="row">
-		<div class="copyright">
-			2015&ndash;2016 Air Craft Media Ltd. &bull; London UK
-		</div>
-		<div class="logo"><img src="http://ac2.localhost/wp-content/themes/air-craft/img/AC-Logo-footer.png" alt="Air Craft — Music, Movement, Amazing"/>
-		</div>
-	</div>
-</footer>
 
 <?php get_footer(); ?>
