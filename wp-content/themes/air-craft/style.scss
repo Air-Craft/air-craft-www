@@ -12,10 +12,17 @@
  GREY: #53565b 
  BRIGHT YELLOW: #fffbe0   // be0
  DIM YELLOW: #d3cfa8  
- MORE DIM YELLOW: #d4d2c1  //d4ccc1
  PURPLE: #793d5b
  DULL BLUE: #008cba
+ 
  */
+$light-blue: #d1e2e8;
+$dim-yellow-2: #d4d2c1; //d4ccc1
+
+$roboto-font-stack: "Roboto", "Helvetica Neue", san-serif;
+$lato-font-stack: "lato", "Helvetica Neue", san-serif;
+
+
 
 /** NEXT: Nav, Home::main, working down... */ 
 
@@ -87,7 +94,7 @@ IMG.coll-bg-image { zoom: 100% !important; }
     margin: 0;
     width: 100%;
     text-align: right;
-    font-family: "Roboto", "Helvetica Neue", san-serif;
+    font-family: $roboto-font-stack;
     font-weight: 400;
     font-size: 0.65em;
     color: #53565b; 
@@ -102,13 +109,13 @@ NAV.mainmenu {
     right: 2rem !important;    
 }    
 NAV.mainmenu UL LI A {
-    font-family: "Roboto", "Helvetica Neue", san-serif !important;
+    font-family: $roboto-font-stack !important;
     font-weight: 400 !important;
     text-transform: uppercase !important;
     font-size: 12px !important;
     margin-bottom: 0 !important;
     letter-spacing: 0.03rem; 
-    color: #d4d2c1 !important;
+    color: $dim-yellow-2 !important;
     line-height: 20px;
 }
 NAV.mainmenu UL.social { margin-left: 10px;}
@@ -390,7 +397,7 @@ h5 {
     font-size: 1.3em;
 }
 h1.title-text {
-    /*font-family: "Roboto", "Helvetica Neue", san-serif;
+    /*font-family: $roboto-font-stack;
     font-weight: 100;*/
 }
 .sf-menu a {
@@ -484,7 +491,7 @@ h1.title-text {
     display: table-cell;
     vertical-align: middle;
     text-align: left;
-    font-family: "Roboto", "Helvetica Neue", san-serif;
+    font-family: $roboto-font-stack;
     font-weight: 100;
     text-transform: uppercase;
     font-size: 1em;
@@ -513,7 +520,7 @@ h1.title-text {
     height: 23px; 
     border: none;
     color: #53565b;
-    font-family: "Roboto", "Helvetica Neue", san-serif;
+    font-family: $roboto-font-stack;
     font-weight: 400 !important;
     
 } 
@@ -527,8 +534,8 @@ h1.title-text {
 
 #home-main .subscribe .form BUTTON {
     height: 23px;
-    border: 2px solid #d4d2c1;
-    color: #d4d2c1;
+    border: 2px solid $dim-yellow-2;
+    color: $dim-yellow-2;
     background-color: rgba(0,0,0,0);
     margin: 0;
     padding: 0rem 0.5rem 0.1rem ;
@@ -536,13 +543,62 @@ h1.title-text {
     position: relative;
     top: -2px;
     left: -7px;
-    font-family: "Roboto", "Helvetica Neue", san-serif;
+    font-family: $roboto-font-stack;
     font-weight: 300 !important;
     text-transform: uppercase;
     font-size: 12px;
 }
 
-#home-description
+#home-description {
+	.coll-section-background { background-color: #1a1e23; }
+	
+	.section-content.row { padding: 80px 0 !important;}
+	
+	.quote {
+		width: 460px;
+		margin: 0 auto;
+		H3 {
+			font-family: $roboto-font-stack;
+			font-weight: 600;
+			font-size: 24px;
+			line-height: 1.6rem;
+			letter-spacing: 1px;
+			text-transform: uppercase;
+			color: $light-blue;
+			text-align: center;
+			margin-bottom: 0;
+		}
+		P {
+			margin-top: 0.2em;
+			font-family: "lato", "Helvetica Neue", sans-serif;
+			font-size: 15px; 
+			color: $light-blue;
+			text-align: center;
+		}
+	}
+	
+	.description {
+		margin-top: 105px;
+		H2 {
+			font-family: $roboto-font-stack;
+			font-weight: 200;
+			font-size: 32px;
+			text-transform: uppercase;
+			text-align: center;
+			color: $dim-yellow-2 !important;
+			margin: 1rem;
+		}
+		P {
+			margin: 0 0 1rem;
+			font-family: "lato", "Helvetica Neue", sans-serif;
+			font-size: 17px; 
+			color: $dim-yellow-2;
+			text-align: center;
+		}
+	}
+	
+	
+} // end #home-description
 
 /*******************************
  INDEX, ARCHIVE
@@ -561,10 +617,10 @@ BODY.blog .color-overlay { opacity: 0.0 !important}
 
 ARTICLE H2.title,
 ARTICLE H2.title A {
-    color: #d4d2c1 !important;
+    color: $dim-yellow-2 !important;
     
-    /*font-family: "lato", "Helvetica Neue", san-serif !important;*/
-    font-family: "Roboto", "Helvetica Neue", san-serif;
+    /*font-family: $lato-font-stack !important;*/
+    font-family: $roboto-font-stack;
     font-weight: 200;
     text-transform: uppercase;
     font-size: 1.3em;
@@ -620,7 +676,7 @@ A.more-link {
 BODY.single .title-wrapper .title-text { 
     color: #fffbe0 !important;
     max-width: 720px;
-    font-family: "Roboto", "Helvetica Neue", san-serif !important;
+    font-family: $roboto-font-stack !important;
     font-weight: 300 !important;
     font-size: 2.0em;
     letter-spacing: -1px;
@@ -666,7 +722,7 @@ BODY.single .content-container > .row { position: relative; top: -40px}
     background-color: #d3cfa8 !important;
 }
 .coll-single .navigation-container .arrow > div > .title-text {
-    font: 1.3em "Lato", "Helvetica Neue", san-serif;
+    font: 1.3em $lato-font-stack;
     color: #d3cfa8;
     opacity: 0.7; 
     font-weight: 300;
