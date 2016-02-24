@@ -194,6 +194,32 @@ function ac_custom_theme_options()
             'min_max_step' => '',
             'class' => ''
    		),
+        array(
+            'id' => 'ac-skype-link',
+            'label' => 'Skype Link',
+            'desc' => '',
+            'std' => '',
+            'type' => 'text',
+            'section' => 'air-craft',
+            'rows' => '',
+            'post_type' => '',
+            'taxonomy' => '',
+            'min_max_step' => '',
+            'class' => ''
+        ),
+        array(
+            'id' => 'ac-press-email',
+            'label' => 'Press Email',
+            'desc' => '',
+            'std' => '',
+            'type' => 'text',
+            'section' => 'air-craft',
+            'rows' => '',
+            'post_type' => '',
+            'taxonomy' => '',
+            'min_max_step' => '',
+            'class' => ''
+        ),
    		array(
             'id' => 'ac-facebook-page',
             'label' => 'Facebook Page',
@@ -220,6 +246,45 @@ function ac_custom_theme_options()
             'min_max_step' => '',
             'class' => ''
    		),
+         array(
+            'id' => 'ac-youtube-page',
+            'label' => 'Youtube Page',
+            'desc' => '',
+            'std' => '',
+            'type' => 'text',
+            'section' => 'air-craft',
+            'rows' => '',
+            'post_type' => '',
+            'taxonomy' => '',
+            'min_max_step' => '',
+            'class' => ''
+        ),
+         array(
+            'id' => 'ac-soundcloud-page',
+            'label' => 'SoundCloud Page',
+            'desc' => '',
+            'std' => '',
+            'type' => 'text',
+            'section' => 'air-craft',
+            'rows' => '',
+            'post_type' => '',
+            'taxonomy' => '',
+            'min_max_step' => '',
+            'class' => ''
+        ),
+        array(
+            'id' => 'ac-instagram-page',
+            'label' => 'Instagram Page',
+            'desc' => '',
+            'std' => '',
+            'type' => 'text',
+            'section' => 'air-craft',
+            'rows' => '',
+            'post_type' => '',
+            'taxonomy' => '',
+            'min_max_step' => '',
+            'class' => ''
+        ),
    		array(
             'id' => 'ac-mailchimp-form-url',
             'label' => 'Mailchimp Form URL',

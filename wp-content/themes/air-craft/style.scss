@@ -8,8 +8,7 @@
 
 /*
  "BLACK": #1a1e23 
- GREY: #53565b 
- DIM YELLOW: #d3cfa8  
+ DIM YELLOW: #d3cfa8
  PURPLE: #793d5b
  DULL BLUE: #008cba
  
@@ -18,6 +17,7 @@ $bright-yellow: #fffbe0;  // fffce9
 $light-blue: #d1e2e8;
 $dim-yellow-2: #d4d2c1; //d4ccc1
 $dark-yellow: #A3A18F;
+$grey: #53565b;
 
 $roboto-font-stack: "Roboto", "Helvetica Neue", san-serif;
 $lato-font-stack: "lato", "Helvetica Neue", san-serif;
@@ -85,7 +85,7 @@ IMG.coll-bg-image { zoom: 100% !important; }
     background-color: none !important;
 }
 .site-footer .row {
-    border-top: 1px solid #53565b;
+    border-top: 1px solid $grey;
     padding: 0.5rem 0 0.7rem;
 }
 .site-footer .row > * { margin: 0 auto; text-align: center;}
@@ -96,7 +96,7 @@ IMG.coll-bg-image { zoom: 100% !important; }
     font-family: $roboto-font-stack;
     font-weight: 400;
     font-size: 0.65em;
-    color: #53565b; 
+    color: $grey; 
 }
 .site-footer .logo { margin-top: -8px; }
 .site-footer .logo IMG { width: auto; opacity: 1;}
@@ -518,7 +518,7 @@ h1.title-text {
     width: 177px;
     height: 23px; 
     border: none;
-    color: #53565b;
+    color: $grey;
     font-family: $roboto-font-stack;
     font-weight: 400 !important;
     
@@ -548,7 +548,8 @@ h1.title-text {
     font-size: 12px;
 }
 
-#home-description {
+// Common
+.home-section {
 	.coll-section-background { background-color: #1a1e23; }
 	
 	.section-content.row { padding: 80px 0 !important;}
@@ -610,7 +611,7 @@ h1.title-text {
 			    width: 255px;
 			    height: 31px; 
 			    border: none;
-			    color: #53565b;
+			    color: $grey;
 			    font-family: $roboto-font-stack;
 			    font-weight: 400 !important;
 			    font-size: 19px;
@@ -643,9 +644,7 @@ h1.title-text {
 
 		}
 	}
-	
-	
-} // end #home-description
+}
 
 #home-highlights {
     .row.text-on-left > * { display: block; float: left }
@@ -671,17 +670,83 @@ h1.title-text {
            margin-bottom: 2rem;
        }
     }
-
+    .phone IMG { zoom: 50% !important; }
     // Shift the images around to break the grid
     .row.first { padding: 80px 0 0; }
     .row.last { padding: 0px 0 0px;} // no need for bottom padding with the shift up
     .row.first {
-        IMG { position: relative; top: -40px; }
+        .phone { position: relative; top: -40px; }
     }
     .row.last {
-        IMG { position: relative; top: -130px; }
+        .phone { position: relative; top: -100px; }
 
         .text { margin-left: 3rem;}
+    }
+}
+
+#home-details {
+    UL.closer-look {
+        margin: 0 auto;
+        padding: 0;
+        list-style: none;
+
+        width: 300px;
+        LI {
+            font-family: $roboto-font-stack;
+            font-weight: 400;
+            font-size: 19px;
+            height: 35px;
+            margin-bottom: 0.5rem;
+            I {
+                font-size: 35px;
+                display: inline-block;
+                width: 50px;
+                text-align: center;
+                height: 3rem;
+                margin-right: 0.5rem;
+                position: relative;
+                top: 3px;
+            }
+            I.manual-icon { // shoulduv just done an img
+                top: 7px;
+                left: 13px;
+                background-image: url("img/icon-manual.png");
+                background-size: 24px 33px;
+                background-repeat: no-repeat;
+                height: 33px;
+                width: 50px;
+            }
+            A {
+                color: $dim-yellow-2 !important;
+                text-decoration: none !important;
+                &:hover {
+                    text-decoration: underline;
+                }
+            }
+
+        }
+    }
+
+    #misc-section.row {
+        padding: 40px;
+        border-top: 1px solid $grey;
+
+        .subsection {
+            width: 33%;
+            float: left;
+
+            H2 {
+                font-family: $roboto-font-stack;
+                font-weight: 200;
+                font-size: 28px;
+                line-height: 1.1rem;
+                color: $grey;
+                text-transform: uppercase;
+            }
+            H3 {
+                font-size: 18px;
+            }
+        }
     }
 }
 
@@ -718,10 +783,10 @@ ARTICLE H2.title A {
     margin-top: 0.5em !important;
  }
 /* Blog post date */
-.coll-section-divider > span.text, .coll-section-divider > span.text A { color: #53565b !important; position: relative; top: 0.14rem}
-.coll-section-divider > span.line > span.color { background-color: #53565b; }
+.coll-section-divider > span.text, .coll-section-divider > span.text A { color: $grey !important; position: relative; top: 0.14rem}
+.coll-section-divider > span.line > span.color { background-color: $grey; }
 
-.post-meta, .post-meta A { color: #53565b !important; border: none !important}
+.post-meta, .post-meta A { color: $grey !important; border: none !important}
 
 .coll-post-list article.hentry {
     padding: 0px 0 !important;
@@ -746,7 +811,7 @@ A.more-link {
 .coll-post-info A { 
     border: 0 !important; 
     color: #ffffff !important;
-    background-color: #53565b;
+    background-color: $grey;
 }
 .coll-post-info a:hover {
     background-color: #793d5b !important;
@@ -771,9 +836,9 @@ BODY.single .title-wrapper .title-text {
 }
 
 .coll-single .title-wrapper .icons .link:hover {
-    border-color     : #53565b;
+    border-color     : $grey;
     color            : #FFF;
-    background-color : #53565b;
+    background-color : $grey;
 }
 
 BODY.single .coll-single .copy-container { margin-top: 10px}
@@ -784,7 +849,7 @@ BODY.single .post-meta { position: relative; top: -10px; }
 BODY.single .post-meta .author-meta { position: relative; top: -10px}
 BODY.single .post-meta .text { padding-left: 0 !important;}
 BODY.single .post-meta .by-author { 
-    color: #53565b !important;
+    color: $grey !important;
     opacity: 1; 
     font-family: "lato", "Helvetica Neue", sans-serif;
     font-size: 13px;
