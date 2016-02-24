@@ -8,14 +8,13 @@
 
 /*
  "BLACK": #1a1e23 
- "WHITE": #fffbe0 //fffce9
  GREY: #53565b 
- BRIGHT YELLOW: #fffbe0   // be0
  DIM YELLOW: #d3cfa8  
  PURPLE: #793d5b
  DULL BLUE: #008cba
  
  */
+$bright-yellow: #fffbe0;  // fffce9
 $light-blue: #d1e2e8;
 $dim-yellow-2: #d4d2c1; //d4ccc1
 
@@ -75,7 +74,6 @@ div.notouch { width: 100%; height: 100%; position:absolute; top: 0; left: 0;}
 img {
   zoom: 50%;
 }
-.content-container img { zoom: 50%; }
 IMG.coll-bg-image { zoom: 100% !important; }
 
 /*******************************
@@ -179,16 +177,16 @@ section.launch > div {
     left: -50%;
 }
 
-section.launch img.logo { display: block;  margin: 0 auto; width: 100px; height: auto; }
+section.launch img.logo { display: block;  margin: 0 auto; width: 200px; height: auto; }
 section.launch h1 { width: 100%; text-align: center; margin: 37px 0 0; }
-section.launch h1 > img { width: 300px; height: auto; }
+section.launch h1 > img { width: 600px; height: auto; }
 
 section.launch p.msg { 
     font-family: "lato", "Helvetica Neue", sans-serif;
     font-size: 16px;
     font-weight: 300; 
     letter-spacing: 3px;
-    color: #fffbe0;
+    color: $bright-yellow;
     width: 100%; 
     text-align: center;
     margin: 5px 0; 
@@ -200,7 +198,7 @@ section.launch A#video-play-btn {
     margin: 20px auto;
     display: block;
     text-align: center;
-     color: #fffbe0 !important;
+     color: $bright-yellow !important;
          
     font-family: "lato", "Helvetica Neue", sans-serif;
     font-size: 25px;
@@ -241,7 +239,7 @@ section.launch form p {
     font-weight: 500;
     letter-spacing: 1px;
     text-transform: uppercase;
-    color: #fffbe0;
+    color: $bright-yellow;
     width: 100%;
     text-align: center;
     margin: 0 0 6px;
@@ -260,7 +258,7 @@ section.launch INPUT[type="email"] {
     
     font: 16px/1.2em "lato", "Helvetica Neue", Arial, sans-serif;
     font-weight: 500;
-    color: #fffbe0;
+    color: $bright-yellow;
 }
 section.launch INPUT::-webkit-input-placeholder { color:#dadada; line-height: 1.2em;}
 section.launch INPUT::-moz-placeholder { color:#dadada; line-height: 1em; }
@@ -270,9 +268,9 @@ section.launch INPUT:-moz-placeholder { color:#dadada; line-height: 1em; }
 
 section.launch INPUT[type="submit"] {
     background: none;
-    border: 1px solid #fffbe0;
+    border: 1px solid $bright-yellow;
     border-color: rgba(255, 251, 224, 0.75);
-    color: #fffbe0;
+    color: $bright-yellow;
     text-transform: uppercase;
     font-family: "lato", "Helvetica Neue", sans-serif;
     font-size: 18px;
@@ -298,7 +296,7 @@ section.launch INPUT[type="submit"]:hover {
 .mute-btn > a {
     width: 100px;
     font-size : 1.5em;
-    color     : #fffbe0;
+    color     : $bright-yellow;
     padding   : 1.5em;
 }
 
@@ -306,7 +304,7 @@ section.launch INPUT[type="submit"]:hover {
 #launch-footer {
     font: 11px/1em "Helvetica Neue", "lato", sans-serif;
     font-weight: 300;
-    color: #fffbe0;     
+    color: $bright-yellow;     
     position: fixed;
     bottom: 0;
     width: 100%;
@@ -323,7 +321,7 @@ section.launch INPUT[type="submit"]:hover {
     margin: 0;
     padding: 0.5em 0.36em;
     font-size: 1.5em;
-    color: #fffbe0 !important;
+    color: $bright-yellow !important;
     position: relative;
     top: 0.15em;
 }
@@ -455,7 +453,7 @@ h1.title-text {
     font-size: 18px;
     font-weight: 200; 
     letter-spacing: 3.3px;
-    color: #fffbe0;
+    color: $bright-yellow;
     width: 100%; 
     text-align: center;
     margin: 0 0; 
@@ -478,7 +476,7 @@ h1.title-text {
     display: table-cell;
     vertical-align: middle; 
     font-size: 45px; 
-    color: #fffbe0; 
+    color: $bright-yellow; 
     width: 55px;
     text-align: left;
 }
@@ -578,7 +576,7 @@ h1.title-text {
 	}
 	
 	.description {
-		margin-top: 105px;
+		margin-top: 55px;
 		H2 {
 			font-family: $roboto-font-stack;
 			font-weight: 200;
@@ -586,7 +584,7 @@ h1.title-text {
 			text-transform: uppercase;
 			text-align: center;
 			color: $dim-yellow-2 !important;
-			margin: 1rem;
+			margin: 2rem 0 0.5rem;
 		}
 		P {
 			margin: 0 0 1rem;
@@ -594,6 +592,54 @@ h1.title-text {
 			font-size: 17px; 
 			color: $dim-yellow-2;
 			text-align: center;
+		}
+		.form {
+			margin: 0 auto;
+			width: 460px;
+			& > * { display: table-cell; vertical-align: middle; }
+			I {
+				font-size: 55px;
+				color: $dim-yellow-2;
+				padding-right: 25px;
+			}
+			FORM { position: relative; top: 2px; }
+			INPUT.email {
+			    display: inline-block;
+			    background-color: #d4ccc1;
+			    width: 255px;
+			    height: 31px; 
+			    border: none;
+			    color: #53565b;
+			    font-family: $roboto-font-stack;
+			    font-weight: 400 !important;
+			    font-size: 19px;
+			    line-height: 1.3rem;
+			    margin: 0;
+			    
+			    &::-webkit-input-placeholder { color:#1a1e23; }
+			    &::-moz-placeholder { color:#1a1e23; } /* firefox 19+ */
+			    &:-ms-input-placeholder { color:#1a1e23; } /* ie */
+			   	&:-moz-placeholder { color:#1a1e23; }
+			} 
+			
+			BUTTON {
+			    height: 31px;
+			    width: 118px;
+			    border: 2px solid $dim-yellow-2;
+			    color: $dim-yellow-2;
+			    background-color: rgba(0,0,0,0);
+			    margin: 0;
+			    padding: 0rem 0.5rem 0.1rem ;
+			    display: inline-block;
+			    position: relative;
+			    top: -2px;
+			    left: -6px;
+			    font-family: $roboto-font-stack;
+			    font-weight: 500 !important;
+			    text-transform: uppercase;
+			    font-size: 15px;
+			}
+
 		}
 	}
 	
@@ -611,7 +657,7 @@ BODY.blog .color-overlay { opacity: 0.0 !important}
     font-family: "lato", "Helvetica Neue", sans-serif;
     font-weight: 300;
     opacity: 0.8; 
-    color: #fffbe0 !important;
+    color: $bright-yellow !important;
     font-size: 3.5em;
 }
 
@@ -674,7 +720,7 @@ A.more-link {
  ********************************/
 
 BODY.single .title-wrapper .title-text { 
-    color: #fffbe0 !important;
+    color: $bright-yellow !important;
     max-width: 720px;
     font-family: $roboto-font-stack !important;
     font-weight: 300 !important;
@@ -707,7 +753,7 @@ BODY.single .post-meta .by-author {
     /*text-transform: uppercase;*/ 
     letter-spacing: 0.1em; 
 }
-BODY.single .post-meta .icons A { color: #fffbe0 !important; opacity: 0.8}
+BODY.single .post-meta .icons A { color: $bright-yellow !important; opacity: 0.8}
 
 BODY.single .post-date { margin: 0 !important; }
 BODY.single .content-container > .row { position: relative; top: -40px}

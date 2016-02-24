@@ -84,14 +84,17 @@ $mailchimp_key = ot_get_option('ac-mailchimp-form-key');
 						Experience a whole new dimension to your sound library that will have you giddy 
 						like the first time all over again.</p>
 					<h2>Coming Soon to the App Store</h2>
-					<form method="post" action="<?php echo $mailchimp_url ?>">
-						<input type="email" class="email" name="EMAIL" placeholder="YOUR EMAIL" required />
-						<button type="submit">GET NOTIFIED</button>
-						<div style="position: absolute; left: -5000px;">
-							<input type="text" name="<?php echo $mailchimp_key?>" tabindex="-1" value="">
-						</div>
+					<div class="form">
+						<i class="fa fa-envelope"></i> 
+						<form method="post" action="<?php echo $mailchimp_url ?>">
+							<input type="email" class="email" name="EMAIL" placeholder="YOUR EMAIL" required />
+							<button type="submit">GET NOTIFIED</button>
+							<div style="position: absolute; left: -5000px;">
+								<input type="text" name="<?php echo $mailchimp_key?>" tabindex="-1" value="">
+							</div>
 						<input type="hidden" name="ORIGIN" value="ac-home" />
 					</form>
+					</div>
 				</div>
 			</div>
 		</div>

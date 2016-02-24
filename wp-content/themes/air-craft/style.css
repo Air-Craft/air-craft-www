@@ -7,9 +7,7 @@
  */
 /*
  "BLACK": #1a1e23 
- "WHITE": #fffbe0 //fffce9
  GREY: #53565b 
- BRIGHT YELLOW: #fffbe0   // be0
  DIM YELLOW: #d3cfa8  
  PURPLE: #793d5b
  DULL BLUE: #008cba
@@ -73,9 +71,6 @@ div.notouch {
 
 .site-footer img,
 img {
-  zoom: 50%; }
-
-.content-container img {
   zoom: 50%; }
 
 IMG.coll-bg-image {
@@ -181,7 +176,7 @@ section.launch > div {
 section.launch img.logo {
   display: block;
   margin: 0 auto;
-  width: 100px;
+  width: 200px;
   height: auto; }
 
 section.launch h1 {
@@ -190,7 +185,7 @@ section.launch h1 {
   margin: 37px 0 0; }
 
 section.launch h1 > img {
-  width: 300px;
+  width: 600px;
   height: auto; }
 
 section.launch p.msg {
@@ -593,7 +588,7 @@ h1.title-text {
     color: #d1e2e8;
     text-align: center; }
 #home-description .description {
-  margin-top: 105px; }
+  margin-top: 55px; }
   #home-description .description H2 {
     font-family: "Roboto", "Helvetica Neue", san-serif;
     font-weight: 200;
@@ -601,13 +596,64 @@ h1.title-text {
     text-transform: uppercase;
     text-align: center;
     color: #d4d2c1 !important;
-    margin: 1rem; }
+    margin: 2rem 0 0.5rem; }
   #home-description .description P {
     margin: 0 0 1rem;
     font-family: "lato", "Helvetica Neue", sans-serif;
     font-size: 17px;
     color: #d4d2c1;
     text-align: center; }
+  #home-description .description .form {
+    margin: 0 auto;
+    width: 460px; }
+    #home-description .description .form > * {
+      display: table-cell;
+      vertical-align: middle; }
+    #home-description .description .form I {
+      font-size: 55px;
+      color: #d4d2c1;
+      padding-right: 25px; }
+    #home-description .description .form FORM {
+      position: relative;
+      top: 2px; }
+    #home-description .description .form INPUT.email {
+      display: inline-block;
+      background-color: #d4ccc1;
+      width: 255px;
+      height: 31px;
+      border: none;
+      color: #53565b;
+      font-family: "Roboto", "Helvetica Neue", san-serif;
+      font-weight: 400 !important;
+      font-size: 19px;
+      line-height: 1.3rem;
+      margin: 0;
+      /* firefox 19+ */
+      /* ie */ }
+      #home-description .description .form INPUT.email::-webkit-input-placeholder {
+        color: #1a1e23; }
+      #home-description .description .form INPUT.email::-moz-placeholder {
+        color: #1a1e23; }
+      #home-description .description .form INPUT.email:-ms-input-placeholder {
+        color: #1a1e23; }
+      #home-description .description .form INPUT.email:-moz-placeholder {
+        color: #1a1e23; }
+    #home-description .description .form BUTTON {
+      height: 31px;
+      width: 118px;
+      border: 2px solid #d4d2c1;
+      color: #d4d2c1;
+      background-color: rgba(0, 0, 0, 0);
+      margin: 0;
+      padding: 0rem 0.5rem 0.1rem;
+      display: inline-block;
+      position: relative;
+      top: -2px;
+      left: -6px;
+      font-family: "Roboto", "Helvetica Neue", san-serif;
+      font-weight: 500 !important;
+      text-transform: uppercase;
+      font-size: 15px; }
 
 /*******************************
  INDEX, ARCHIVE
