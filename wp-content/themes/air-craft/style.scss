@@ -17,6 +17,7 @@
 $bright-yellow: #fffbe0;  // fffce9
 $light-blue: #d1e2e8;
 $dim-yellow-2: #d4d2c1; //d4ccc1
+$dark-yellow: #A3A18F;
 
 $roboto-font-stack: "Roboto", "Helvetica Neue", san-serif;
 $lato-font-stack: "lato", "Helvetica Neue", san-serif;
@@ -645,6 +646,44 @@ h1.title-text {
 	
 	
 } // end #home-description
+
+#home-highlights {
+    .row.text-on-left > * { display: block; float: left }
+    .row.text-on-right > * { display: block; float: right }
+    .row > .text {
+        width: 100%;
+        max-width: 500px;
+
+        H2 {
+            font-family: $roboto-font-stack;
+            font-weight: 200;
+            text-transform: uppercase;
+            color: $bright-yellow;
+            font-size: 28px;
+            margin-top: 0;
+       }
+       P {
+           font-family: $lato-font-stack;
+           color: $bright-yellow !important;
+           font-size: 16px;
+           line-height: 1.4rem;
+           font-weight: 400;
+           margin-bottom: 2rem;
+       }
+    }
+
+    // Shift the images around to break the grid
+    .row.first { padding: 80px 0 0; }
+    .row.last { padding: 0px 0 0px;} // no need for bottom padding with the shift up
+    .row.first {
+        IMG { position: relative; top: -40px; }
+    }
+    .row.last {
+        IMG { position: relative; top: -130px; }
+
+        .text { margin-left: 3rem;}
+    }
+}
 
 /*******************************
  INDEX, ARCHIVE

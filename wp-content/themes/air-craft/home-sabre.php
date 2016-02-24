@@ -14,6 +14,9 @@ $demo_video = ot_get_option('ac-demo-video-link');
 $mailchimp_url = ot_get_option('ac-mailchimp-form-url');
 $mailchimp_key = ot_get_option('ac-mailchimp-form-key');
 
+$custom_fields = get_post_meta(get_the_ID());
+
+$imgurl_base = trailingslashit(get_stylesheet_directory_uri()).'img/';
 ?>
 
 <div <?php echo $sl_main_id; ?> role="main" class="wrapper common">
@@ -100,114 +103,26 @@ $mailchimp_key = ot_get_option('ac-mailchimp-form-key');
 		</div>
 	</div>
 </section>
-<section id="ac-sabre-highlights-1" class="page-section  post-165 coll-page-section type-coll-page-section status-publish hentry">
-	<div class="coll-section-background js-coll-parallax"  style="background-color: #0a0808" ><img class="coll-bg-image js-coll-lazy"
-		src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABAQMAAAAl21bKAAAAA1BMVEUAAACnej3aAAAAAXRSTlMAQObYZgAAAApJREFUCNdjYAAAAAIAAeIhvDMAAAAASUVORK5CYII="
+<section id="home-highlights" class="page-section coll-page-section type-coll-page-section status-publish hentry">
+	<div class="coll-section-background js-coll-parallax"  ><img class="coll-bg-image"
+		src="<?php echo $imgurl_base.'sabre-home-bg1.jpg' ?>"
 		width=""
 		height=""
-		data-coll-ar=""
-		data-coll-src="http://air-craft.co/wp-content/uploads/2015/06/ac-sabre-on-device-3-e1435675942634.png"
-		alt="bg image" />
+		alt="" />
 	</div>
-	<div class="section-content row ">
-		<div class="columns entry-title coll-hide-title" >
-			<h2 class="title" style="color: #fff">AC Sabre Highlights 1</h2><h4 class="subtitle" style="color: #fff"></h4>
-		</div>
-		<div class="entry-content columns">
-			<div class="columns large-6 medium-6 text-left">
-				</p>
-				<h1><span style="color: #ffffff;">Intuitive, with Precision</span></h1>
-				<p>
-					<span style="color: #ffffff;">Intuitive control of multiple parameters simultaneously with your movements. No interpretative &#8216;magic&#8217;. What you intend is what you get.</span>
-				</p>
-				<p>
-			</div>
-		</div>
+
+	<div class="section-content row text-on-left first">
+		<div class="text">
+		    <?php echo $custom_fields["Home Highlights HTML 1"][0] ?>
+        </div>
+        <img src="<?php echo $imgurl_base.'sabre-phone-1.png' ?>"/>
 	</div>
-</section>
-<section id="ac-sabre-highlights-2" class="page-section  post-170 coll-page-section type-coll-page-section status-publish hentry">
-	<div class="coll-section-background js-coll-parallax"  style="background-color: #0a0000" ><img class="coll-bg-image js-coll-lazy"
-		src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABAQMAAAAl21bKAAAAA1BMVEUAAACnej3aAAAAAXRSTlMAQObYZgAAAApJREFUCNdjYAAAAAIAAeIhvDMAAAAASUVORK5CYII="
-		width="550"
-		height="472"
-		data-coll-ar="1.16525423729"
-		data-coll-src="http://air-craft.co/wp-content/uploads/2015/06/ac-sabre-on-device-1.png"
-		alt="bg image" />
-	</div>
-	<div class="section-content row ">
-		<div class="columns entry-title coll-hide-title" >
-			<h2 class="title" style="color: #fff">AC Sabre Highlights 2</h2><h4 class="subtitle" style="color: #fff"></h4>
-		</div>
-		<div class="entry-content columns">
-			<div class="columns large-6 medium-6 text-left"></div>
-			<div class="columns large-6 medium-6 text-right">
-				</p>
-				<h1 style="color: #fff;">Music, Mastered</h1>
-				<p style="color: #fff;">
-					Arpeggios, harmonies, trills, modal key changes, 200+ scales, portamento &amp; legato, scale-locked note bending, ribbons…A maestro&#8217;s palette at your command.
-				</p>
-				<p>
-			</div>
-		</div>
-	</div>
-</section>
-<section id="ac-sabre-highlights-3" class="page-section  post-172 coll-page-section type-coll-page-section status-publish hentry">
-	<div class="coll-section-background js-coll-parallax"  style="background-color: #0da59b" ><img class="coll-bg-image js-coll-lazy"
-		src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABAQMAAAAl21bKAAAAA1BMVEUAAACnej3aAAAAAXRSTlMAQObYZgAAAApJREFUCNdjYAAAAAIAAeIhvDMAAAAASUVORK5CYII="
-		width=""
-		height=""
-		data-coll-ar=""
-		data-coll-src="http://air-craft.co/wp-content/uploads/2015/06/ac-sabre-on-device-3-e1435675942634.png"
-		alt="bg image" />
-	</div>
-	<div class="section-content row ">
-		<div class="columns entry-title coll-hide-title" >
-			<h2 class="title" style="color: #fff">AC Sabre Highlights 3</h2><h4 class="subtitle" style="color: #fff"></h4>
-		</div>
-		<div class="entry-content columns">
-			<div class="columns large-6 medium-6 text-left">
-				</p>
-				<h1 style="color:#fff">Power Interface</h1>
-				<p  style="color:#fff">
-					The elegant  multi-touch interface is intuitive at first touch with depth on-demand. Finely tuned touch controls go way beyond mere buttons…
-				</p>
-				<p>
-			</div>
-		</div>
-	</div>
-</section>
-<section id="ac-sabre-highlights-4" class="page-section  post-174 coll-page-section type-coll-page-section status-publish hentry">
-	<div class="coll-section-background js-coll-parallax"  style="background-color: #cea473" ><img class="coll-bg-image js-coll-lazy"
-		src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABAQMAAAAl21bKAAAAA1BMVEUAAACnej3aAAAAAXRSTlMAQObYZgAAAApJREFUCNdjYAAAAAIAAeIhvDMAAAAASUVORK5CYII="
-		width="550"
-		height="472"
-		data-coll-ar="1.16525423729"
-		data-coll-src="http://air-craft.co/wp-content/uploads/2015/06/ac-sabre-on-device-1.png"
-		alt="bg image" />
-	</div>
-	<div class="section-content row ">
-		<div class="columns entry-title coll-hide-title" >
-			<h2 class="title" style="color: #fff">AC Sabre Highlights 4</h2><h4 class="subtitle" style="color: #fff"></h4>
-		</div>
-		<div class="entry-content columns">
-			<div class="columns large-6 medium-6 text-left"></div>
-			<div class="columns large-6 medium-6 text-right">
-				</p>
-				<h1 style="color:#fff">And a little extra&#8230;</h1>
-				<p  style="color:#fff">
-					Get your bagpipe on with the Drone or blow your mind with &#8220;Tap&#8221; Mode
-				</p>
-				<p>
-					<a   style="border-radius : 0px; -moz-border-radius:0px; -webkit-border-radius0px;"
-					class="coll-button js-coll-button "
-					href="#"
-					target="_self"
-					data-coll-color="#000" data-coll-color-hover="#fff" data-coll-border="2px solid #000" data-coll-border-hover="2px solid #502b42" data-coll-background-color="" data-coll-background-color-hover="#502b42">Watch Demo »</a>
-				</p>
-				<p>
-			</div>
-		</div>
-	</div>
+    <div class="section-content row text-on-right last">
+        <div class="text">
+            <?php echo $custom_fields["Home Highlights HTML 2"][0] ?>
+        </div>
+        <img src="<?php echo $imgurl_base.'sabre-phone-2.png' ?>"/>
+    </div>
 </section>
 <section id="home-press-blog" class="page-section  post-205 coll-page-section type-coll-page-section status-publish hentry">
 	<div class="coll-section-background js-coll-parallax"  style="background-color: #f7efde" ></div>

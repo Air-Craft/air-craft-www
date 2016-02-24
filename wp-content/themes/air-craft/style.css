@@ -655,6 +655,42 @@ h1.title-text {
       text-transform: uppercase;
       font-size: 15px; }
 
+#home-highlights .row.text-on-left > * {
+  display: block;
+  float: left; }
+#home-highlights .row.text-on-right > * {
+  display: block;
+  float: right; }
+#home-highlights .row > .text {
+  width: 100%;
+  max-width: 500px; }
+  #home-highlights .row > .text H2 {
+    font-family: "Roboto", "Helvetica Neue", san-serif;
+    font-weight: 200;
+    text-transform: uppercase;
+    color: #fffbe0;
+    font-size: 28px;
+    margin-top: 0; }
+  #home-highlights .row > .text P {
+    font-family: "lato", "Helvetica Neue", san-serif;
+    color: #fffbe0 !important;
+    font-size: 16px;
+    line-height: 1.4rem;
+    font-weight: 400;
+    margin-bottom: 2rem; }
+#home-highlights .row.first {
+  padding: 80px 0 0; }
+#home-highlights .row.last {
+  padding: 0px 0 0px; }
+#home-highlights .row.first IMG {
+  position: relative;
+  top: -40px; }
+#home-highlights .row.last IMG {
+  position: relative;
+  top: -130px; }
+#home-highlights .row.last .text {
+  margin-left: 3rem; }
+
 /*******************************
  INDEX, ARCHIVE
  ********************************/
