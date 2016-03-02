@@ -9,7 +9,7 @@ $outputT = '';
 if (has_post_thumbnail($ID)) {
 	$thumb = wp_get_attachment_image_src(get_post_thumbnail_id($ID), 'full');
 
-	$outputT .= '<section class="background js-coll-page-section coll-page-section">';
+	$outputT .= '<section class="background drop-menu-after js-coll-page-section coll-page-section">';
 	$outputT .= '<div class="js-coll-parallax coll-section-background">';
 	$outputT .= '<img class="coll-bg-image js-coll-lazy"
                             width="' . $thumb[1] . '"

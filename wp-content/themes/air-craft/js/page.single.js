@@ -96,10 +96,16 @@
 
                 })
 
+                // HKS this really only worked by assuming the the drop in only needs to occur after a full screen scroll
+                // which is really only true on the HP.  I've added an explicit class to define the block a
+                // after which it should drop
                 if (_slideH) {
                     _slideH.removeAttrs('^(data-)');
-                    addAttr(_slideH, $wndw.height() - _slideH.height() - 10, -200);
-                    addAttr(_slideH, $wndw.height() - _slideH.height(), 0);
+//                    addAttr(_slideH, $wndw.height() - _slideH.height() - 10, -200);
+//                    addAttr(_slideH, $wndw.height() - _slideH.height(), 0);
+                    var dropAfterH = $(".drop-menu-after").height();
+                    addAttr(_slideH, dropAfterH - 10, -200);
+                    addAttr(_slideH, dropAfterH, 0);
                 }
             }
             var addAttr = function (item, nData, nValue) {

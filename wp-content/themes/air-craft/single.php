@@ -7,7 +7,8 @@ if (have_posts()) :
         the_post();
         // thumbnail
         $outputT = '';
-		
+
+		// Grab the header for the blog page
 		$ID = get_option('page_for_posts');
 		
 		// thumbnail
@@ -17,7 +18,7 @@ if (have_posts()) :
 		// if (has_post_thumbnail()) {
             // $thumb = wp_get_attachment_image_src(get_post_thumbnail_id($post->ID), 'full');
 
-            $outputT .= '<section class="background js-coll-page-section coll-page-section">';
+            $outputT .= '<section class="background drop-menu-after js-coll-page-section coll-page-section">';
             $outputT .= '<div class="js-coll-parallax coll-section-background">';
             $outputT .= '<img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABAQMAAAAl21bKAAAAA1BMVEUAAACnej3aAAAAAXRSTlMAQObYZgAAAApJREFUCNdjYAAAAAIAAeIhvDMAAAAASUVORK5CYII="
                             class="coll-bg-image js-coll-lazy"
@@ -29,9 +30,9 @@ if (have_posts()) :
             $outputT .= '</div>';
             $outputT .= '</section>';
         }
-
+        // NOTE: make coll-parallax conditional if you want to support no header image
         ?>
-        <div class="wrapper common coll-single coll-post <?php if (has_post_thumbnail()) echo 'coll-parallax' ?>" id="skrollr-body">
+        <div class="wrapper page-single common coll-single coll-post coll-parallax" id="skrollr-body">
         <?php echo $outputT; ?>
         <section class="title-container js-coll-page-section coll-page-section">
             <div class="row">

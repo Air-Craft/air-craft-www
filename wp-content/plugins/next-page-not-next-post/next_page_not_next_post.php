@@ -14,9 +14,8 @@ loop that once as well. Oh well, I'll update that as time permits. Don't hate.
 
 include('shortcodes.php');
 
-function next_page_not_post($anchor='',$loop=NULL, $getPagesQuery='sort_column=menu_order&sort_order=asc', $prefix='', $suffix='', $css_class='npnnp previous') {
+function next_page_not_post($anchor='',$loop=NULL, $getPagesQuery='sort_column=menu_order&sort_order=asc', $prefix='', $suffix='', $css_class='npnnp next') {
 	global $post;
-	
 	$getPages = '';
 	
 	// cousins will have a similar grandparent
@@ -55,7 +54,7 @@ function next_page_not_post($anchor='',$loop=NULL, $getPagesQuery='sort_column=m
 	// if there isn't a value assigned for the previous key, go all the way to the end
 	if (isset($getPages[$nextKey])) {
 		$anchorName = $getPages[$nextKey]->post_title;
-		$output = '<a href="'.get_permalink($getPages[$nextKey]->ID).'" title="'.$anchorName.'">';
+		$output = '<a href="'.get_permalink($getPages[$nextKey]->ID).'" title="'.$anchorName.'" class="'.$css_class.'">';
 	}
 	elseif ($loop == 'expand') {
 		// fixed by banesto
@@ -146,7 +145,7 @@ function previous_page_not_post($anchor='',$loop=NULL, $getPagesQuery='sort_colu
 	// if there isn't a value assigned for the previous key, go all the way to the end
 	if (isset($getPages[$prevKey])) {
 		$anchorName = $getPages[$prevKey]->post_title;
-		$output = '<a href="'.get_permalink($getPages[$prevKey]->ID).'" title="'.esc_attr( $anchorName ).'">';
+		$output = '<a href="'.get_permalink($getPages[$prevKey]->ID).'" title="'.esc_attr( $anchorName ).'" class="'.$css_class.'">';
 	}
 	elseif ($loop == 'expand') {
 		if ($post->post_parent != 0) {
