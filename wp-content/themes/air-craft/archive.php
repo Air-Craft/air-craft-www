@@ -90,7 +90,7 @@ if (is_category()) {
 
                                 <div class="post-meta">
                                     <span class="by-author"><?php _e('By ', 'framework');
-                                        the_author(); ?></span> | <span class="tags"><?php the_tags(false);?></span>
+                                        the_author(); ?></span>
                                 </div>
                                 <?php
                                 $output = '';
@@ -119,6 +119,24 @@ if (is_category()) {
                                     }
                                     ?>
                                 </div>
+
+
+                                <footer class="coll-post-info">
+                                    <?php
+
+                                    $categ = get_the_category()[0];
+                                    $categ_link = get_category_link($categ->term_id);
+                                    $tags = get_the_tags();
+
+                                    ?>
+                                    <div class="taxonomy">
+                                        <a class="category" href="<?php echo esc_url($categ_link)?>"><?php echo esc_html($categ->name) ?></a>
+                                        <?php if ($tags): foreach ($tags as $tag): ?>
+                                        <a href="<?php echo esc_url(get_tag_link($tag->term_id))?>"><?php echo esc_html($tag->name) ?></a>
+                                        <?php endforeach; endif;?>
+                                    </div>
+                                </footer>
+
                             </div>
                         </article>
 					<?php
@@ -129,9 +147,8 @@ if (is_category()) {
 			<?php if ( ot_get_option( 'coll_blog_sidebar' ) ) : ?>
 				<div class="large-3 columns coll-sidebar">
 					<div class="sidebar-container">
-						<?php if ( ! dynamic_sidebar() ) {
-							dynamic_sidebar( 'coll-blog-sidebar' );
-						} ?>
+                        <?php //if (!dynamic_sidebar()) dynamic_sidebar('coll-blog-sidebar'); ?>
+                        <?php get_template_part("template-sidebar"); ?>
 					</div>
 				</div>
 			<?php endif; ?>

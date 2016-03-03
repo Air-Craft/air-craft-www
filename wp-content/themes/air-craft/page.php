@@ -76,7 +76,8 @@ if (have_posts()) :
                 <?php if (ot_get_option('coll_page_sidebar')) : ?>
                     <div class="large-3 columns">
                         <div class="sidebar-container">
-                            <?php if (!dynamic_sidebar()) dynamic_sidebar('coll-page-sidebar'); ?>
+                            <?php //if (!dynamic_sidebar()) dynamic_sidebar('coll-blog-sidebar'); ?>
+                            <?php get_template_part("template-sidebar"); ?>
                         </div>
                     </div>
                 <?php endif; ?>

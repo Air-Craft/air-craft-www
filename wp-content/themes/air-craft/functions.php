@@ -23,6 +23,8 @@ add_action('wp_print_scripts', function () {
 	
 	wp_dequeue_script( 'page.single' );
 	wp_deregister_script( 'page.single' );
+	wp_dequeue_script( 'retina' );
+
 	wp_enqueue_script( 'page.single', trailingslashit(get_stylesheet_directory_uri()) . 'js/page.single.js', '', null, true );
 	
 	// NOTE: using the CodeKit minified version

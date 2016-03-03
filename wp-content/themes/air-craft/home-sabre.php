@@ -50,8 +50,8 @@ $NEWS_CATEG_ID = 10;
 		<div class="entry-content columns">
 			<div class="coll-middle ">
 				<div class="inner">
-					<img class="logo" alt="Air Craft" src="<?php echo trailingslashit(get_theme_root_uri())?>air-craft/img/ac-logo-for-launch-page@2x.png">
-					<h1><img alt="AC Sabre" src="<?php echo trailingslashit(get_theme_root_uri())?>air-craft/img/ac-sabre-text-for-launch-page@2x.png"></h1>
+					<img class="logo" alt="Air Craft" src="<?php echo trailingslashit(get_theme_root_uri())?>air-craft/img/ac-logo.png">
+					<h1><img alt="AC Sabre" src="<?php echo trailingslashit(get_theme_root_uri())?>air-craft/img/ac-sabre-text.png"></h1>
 					<p class="msg">Musical Instrument, Evolved</p>
 					<div class="call-to-action">	
 						<a 
@@ -62,16 +62,14 @@ $NEWS_CATEG_ID = 10;
 							<i class="fa fa-envelope"></i> 
 							<div>
 								<div class="text">Launching Soon</div>
-								<div class="form">
-									<form method="post" action="<?php echo $mailchimp_url ?>">
-										<input type="email" class="email" name="EMAIL" placeholder="GET NOTIFIED" required />
-										<button type="submit">SUBMIT</button>
-										<div style="position: absolute; left: -5000px;">
-											<input type="text" name="<?php echo $mailchimp_key?>" tabindex="-1" value="">
-										</div>
-										<input type="hidden" name="ORIGIN" value="sabre-home" />
-									</form>
-								</div>
+                                <form method="post" action="<?php echo $mailchimp_url ?>">
+                                    <input type="email" class="email" name="EMAIL" placeholder="GET NOTIFIED" required />
+                                    <button type="submit">SUBMIT</button>
+                                    <div style="position: absolute; left: -5000px;">
+                                        <input type="text" name="<?php echo $mailchimp_key?>" tabindex="-1" value="">
+                                    </div>
+                                    <input type="hidden" name="ORIGIN" value="sabre-home" />
+                                </form>
 							</div>
 						</div>
 					</div>	
