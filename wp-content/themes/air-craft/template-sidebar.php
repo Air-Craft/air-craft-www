@@ -15,6 +15,7 @@ $mailchimp_key = ot_get_option('ac-mailchimp-form-key');
                 <input type="submit" id="searchsubmit" value="Search" />
             </div>
         </form>
+        <?php if (!is_page()): ?>
         <h3>Categories</h3>
         <ul>
             <li><a href="/news" alt="News">News</a></li>
@@ -33,16 +34,16 @@ $mailchimp_key = ot_get_option('ac-mailchimp-form-key');
             );
         }*/
         ?></ul>
-
+        <?php endif; ?>
 
     </section>
 
     <section class="widget sabre">
-        <img class="title" src="<?php echo trailingslashit(get_theme_root_uri())?>air-craft/img/ac-sabre-text.png" alt="AC Sabre"/>
-        <p class="byline">Musical Instrument...Evolved</p>
         <a
             href="<?php echo $demo_video?>"
             class="phone row video colorbox prevent-underline-on-fa"><img class="phone" src="<?php echo trailingslashit(get_theme_root_uri())?>air-craft/img/sabre-phone-flat-1.png" alt="AC Sabre Instrument View"/><i class="fa fa-play-circle-o"></i></a>
+        <img class="title" src="<?php echo trailingslashit(get_theme_root_uri())?>air-craft/img/ac-sabre-text.png" alt="AC Sabre"/>
+        <p class="byline">Musical Instrument, Evolved</p>
         <div class="call-to-action">
             <a  href="<?php echo $demo_video?>"
                 id="video-play-btn"

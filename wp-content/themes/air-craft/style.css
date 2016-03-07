@@ -57,7 +57,6 @@ div.notouch {
 .coll-shortcode-portfolio .items .hentry .info {
   opacity: 1.0 !important; }
 
-.site-footer img,
 img {
   zoom: 50%; }
 
@@ -97,7 +96,7 @@ IMG.coll-bg-image {
   margin-top: -8px; }
 
 .site-footer .logo IMG {
-  width: 80px;
+  width: 120px;
   opacity: 1;
   margin: 0; }
 
@@ -810,7 +809,7 @@ h1.title-text {
  ********************************/
 BODY.archive .color-overlay,
 BODY.blog .color-overlay {
-  opacity: 0.0 !important; }
+  opacity: 0.5 !important; }
 
 .coll-single .title-wrapper .title-text {
   font-family: "lato", "Helvetica Neue", sans-serif;
@@ -936,6 +935,8 @@ BODY.single {
     word-spacing: 0.2rem;
     line-height: 2rem;
     text-transform: uppercase; }
+  BODY.single .coll-single section.title-container {
+    bottom: -1em !important; }
   BODY.single .coll-single .title-wrapper .icons .link:hover {
     border-color: #53565b;
     color: #FFF;
@@ -1130,25 +1131,25 @@ SECTION.widget {
   SECTION.widget.sabre {
     border: 1px solid #53565b;
     border-width: 1px 0;
-    margin-top: 6em;
+    margin-top: 3em;
     padding-bottom: 1em; }
     SECTION.widget.sabre IMG {
       margin: 1em auto;
       display: block; }
     SECTION.widget.sabre IMG.title {
-      width: 80%;
-      margin: 0em auto 1.7em; }
+      width: 90%;
+      margin: 1.0em auto 0.6em; }
     SECTION.widget.sabre IMG.phone {
       width: 80%; }
     SECTION.widget.sabre .byline {
       font-family: "lato", "Helvetica Neue", san-serif;
       font-size: 15px;
       font-weight: 300;
-      letter-spacing: 1px;
+      letter-spacing: 0.7px;
       color: #d4d2c1;
       width: 100%;
       text-align: center;
-      margin: 0 0 1.2em;
+      margin: 0 0 1.7em;
       line-height: 1rem; }
     SECTION.widget.sabre A.video {
       display: block;

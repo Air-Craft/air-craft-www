@@ -67,7 +67,6 @@ div.notouch { width: 100%; height: 100%; position:absolute; top: 0; left: 0;}
 /** ? */
 .coll-shortcode-portfolio .items .hentry .info { opacity: 1.0 !important; }
 
-.site-footer img,
 img {
   zoom: 50%;
 }
@@ -101,7 +100,7 @@ IMG.coll-bg-image { zoom: 100% !important; }
     color: $grey; 
 }
 .site-footer .logo { margin-top: -8px; }
-.site-footer .logo IMG { width: 80px; opacity: 1; margin: 0}
+.site-footer .logo IMG { width: 120px; opacity: 1; margin: 0}
 
 
 /** NAV *****/
@@ -900,7 +899,7 @@ h1.title-text {
  ********************************/
 
 BODY.archive .color-overlay,
-BODY.blog .color-overlay { opacity: 0.0 !important}
+BODY.blog .color-overlay { opacity: 0.5 !important}
 
 .coll-single .title-wrapper .title-text {
     font-family: "lato", "Helvetica Neue", sans-serif;
@@ -925,6 +924,9 @@ ARTICLE H2.title A {
 }
 
 BODY.archive, BODY.blog {
+
+//    .coll-single section.title-container { bottom: -2em !important;}
+
     .coll-post-list .post-meta {
         padding-bottom: 0 !important;
     }
@@ -1042,6 +1044,7 @@ BODY.single {
     line-height: 2rem;
     text-transform: uppercase;    
 }
+    .coll-single section.title-container { bottom: -1em !important;}
 
     .coll-single .title-wrapper .icons .link:hover {
     border-color     : $grey;
@@ -1270,21 +1273,21 @@ SECTION.widget {
     &.sabre {
         border: 1px solid $grey;
         border-width: 1px 0;
-        margin-top: 6em;
+        margin-top: 3em;
         padding-bottom: 1em;
 
         IMG {margin: 1em auto; display: block; }
-        IMG.title { width: 80%; margin: 0em auto 1.7em}
+        IMG.title { width: 90%; margin: 1.0em auto 0.6em}
         IMG.phone { width: 80%;}
         .byline {
             font-family: $lato-font-stack;
             font-size: 15px;
             font-weight: 300;
-            letter-spacing: 1px;
+            letter-spacing: 0.7px;
             color: $dim-yellow-2;
             width: 100%;
             text-align: center;
-            margin: 0 0 1.2em;
+            margin: 0 0 1.7em;
             line-height: 1rem;
         }
 

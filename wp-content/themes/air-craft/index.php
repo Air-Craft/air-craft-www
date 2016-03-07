@@ -33,10 +33,6 @@ if (has_post_thumbnail($ID)) {
             <div class="large-12 columns">
                 <div class="title-wrapper">
                     <h1 class="title-text"><?php echo get_the_title($ID); ?></h1>
-
-                    <h3 class="subtitle-text">
-                        <?php echo coll_get_excerpt_by_id($ID, ot_get_option('coll_excerpt_length'), '<a><em><strong>', ''); ?>
-                    </h3>
                 </div>
             </div>
         </div>

@@ -22,8 +22,8 @@ $obfuscated_email = antispambot(ot_get_option('ac-public-email'));
 
 <div class="notouch"></div>
 <section class="launch"><div>
-	<img class="logo" alt="Air Craft" src="<?php echo trailingslashit(get_theme_root_uri())?>air-craft/img/ac-logo-for-launch-page@2x.png">
-	<h1><img alt="AC Sabre" src="<?php echo trailingslashit(get_theme_root_uri())?>air-craft/img/ac-sabre-text-for-launch-page@2x.png"></h1>
+	<img class="logo" alt="Air Craft" src="<?php echo trailingslashit(get_theme_root_uri())?>air-craft/img/ac-logo.png">
+	<h1><img alt="AC Sabre" src="<?php echo trailingslashit(get_theme_root_uri())?>air-craft/img/ac-sabre-text.png"></h1>
 	<p class="msg">Launching End of 2015</p>
 	
 	

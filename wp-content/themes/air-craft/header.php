@@ -33,6 +33,8 @@ $slidein = (!$coll_is_mobile) ? $slidein : '';
     (is_home() && has_post_thumbnail(get_option('page_for_posts')))
 ) ? $slidein : '';*/
 
+$is_launch = is_page_template('launch.php');
+
 $fullwidth = ot_get_option('coll_header_fullwidth');
 $fullwidth = ($fullwidth) ? '' : 'row';
 $logourl = trailingslashit(get_stylesheet_directory_uri()).'img/AC-Logo-nav.png';// ot_get_option('coll_site_logo');
@@ -64,16 +66,17 @@ EOF;
         </div>
         <nav class="mainmenu  <?php echo $menupos; ?>">
             <?php
-            wp_nav_menu(array(
-                'theme_location' => 'primary-menu',
-                'container' => '',
-                'menu_class' => 'sf-menu', //Adding the class for dropdowns
-                'before' => '',
-                'fallback_cb' => ''
+            if (!$is_launch) {
+                wp_nav_menu(array(
+                    'theme_location' => 'primary-menu',
+                    'container' => '',
+                    'menu_class' => 'sf-menu', //Adding the class for dropdowns
+                    'before' => '',
+                    'fallback_cb' => ''
 
-            ));
-            
-            echo $social_menu;
+                ));
+                echo $social_menu;
+            }
             ?>
         </nav>
 
@@ -92,16 +95,19 @@ EOF;
         <a id="coll-menu-icon" class="no-border" href=""><i class="fa fa-bars"></i></a>
         <nav class="mainmenu">
             <?php
-            wp_nav_menu(array(
-                'theme_location' => 'primary-menu',
-                'container' => '',
-                'menu_class' => 'sf-menu', //Adding the class for dropdowns
-                'before' => '',
-                'fallback_cb' => ''
+            if (!$is_launch) {
+                wp_nav_menu(array(
+                    'theme_location' => 'primary-menu',
+                    'container' => '',
+                    'menu_class' => 'sf-menu', //Adding the class for dropdowns
+                    'before' => '',
+                    'fallback_cb' => ''
 
-            ));
+                ));
+                echo $social_menu;
+            }
             
-            echo $social_menu;
+
             ?>
         </nav>
     </div>
@@ -120,15 +126,18 @@ EOF;
         </div>
         <nav class="mainmenu  <?php echo $menupos; ?>">
             <?php
-            wp_nav_menu(array(
-                'theme_location' => 'primary-menu',
-                'container' => '',
-                'menu_class' => 'sf-menu', //Adding the class for dropdowns
-                'before' => '',
-                'fallback_cb' => ''
-            ));
-            
-            echo $social_menu;
+            if (!$is_launch) {
+                wp_nav_menu(array(
+                    'theme_location' => 'primary-menu',
+                        'container' => '',
+                        'menu_class' => 'sf-menu', //Adding the class for dropdowns
+                        'before' => '',
+                        'fallback_cb' => ''
+
+                ));
+                echo $social_menu;
+            }
+
             ?>
             
         </nav>
