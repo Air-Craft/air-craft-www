@@ -85,7 +85,7 @@ $NEWS_CATEG_ID = 10;
 			<div class="coll-layerslider coll-slideshow">
 				<div class="quote">
 					<h3>It’s great for controlling fat,<br/>nasty bass patches...</h3>
-					<p>&ndash; Beta Test</p>
+					<p>&ndash; Beta Tester</p>
 				</div>
 				<div class="description">
 					<?php the_post(); the_content() ?>
