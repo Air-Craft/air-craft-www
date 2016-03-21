@@ -178,7 +178,6 @@ $NEWS_CATEG_ID = 10;
             </ul>
         </div>
 
-        <a name="press" id="press"></a>
         <div class="subsection press">
             <h2>Press</h2>
             <p><span class="label2">Press Contact:</span> <a href="mailto:<?php echo $press_email?>"><?php echo $press_email?></a></p>
@@ -220,5 +219,6 @@ $NEWS_CATEG_ID = 10;
 
     </div>
 </section>
+<a name="press" id="press"></a>
 
 <?php get_footer(); ?>
