@@ -156,7 +156,8 @@ $NEWS_CATEG_ID = 10;
                    <h2>Take a Closer Look...</h2>
                    <ul class="closer-look">
                        <li><a href="/support/ac-sabre-manual" class="prevent-underline-on-fa"><i class="manual-icon"></i> AC Sabre User's Guide &raquo;</a></li>
-                       <li><a target="_blank" href="<?php echo $youtube?>" class="prevent-underline-on-fa"><i class="fa fa-youtube"></i> Air Craft Youtube Channel &raquo;</a></li>
+                       <li><a href="http://community.air-craft.co/" class="prevent-underline-on-fa"><i class="fa fa-comments"></i> Forum & Downloads &raquo;</a></li>
+                       <li><a target="_blank" href="<?php echo $youtube?>" class="prevent-underline-on-fa"><i class="fa fa-youtube"></i> Air Craft YouTube Channel &raquo;</a></li>
                        <li><a target="_blank" href="<?php echo $soundcloud?>" class="prevent-underline-on-fa"><i class="fa fa-soundcloud"></i> Air Craft on SoundCloud &raquo;</a></li>
                    </ul>
                 </div>
