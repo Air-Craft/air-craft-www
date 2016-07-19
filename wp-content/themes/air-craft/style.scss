@@ -1289,7 +1289,7 @@ SECTION.widget {
             color: $dim-yellow-2;
             width: 100%;
             text-align: center;
-            margin: 0 0 1.7em;
+            margin: 0 0 1em;
             line-height: 1rem;
         }
 
@@ -1310,7 +1310,7 @@ SECTION.widget {
         .call-to-action {
             width: auto;
             left: 0;
-            margin: 1em auto 0;
+            margin: 0em auto 0;
             & .row { height: 40px !important; }
             * { color: $dim-yellow-2 !important;}
             I {

@@ -44,16 +44,17 @@ $mailchimp_key = ot_get_option('ac-mailchimp-form-key');
             class="phone row video colorbox prevent-underline-on-fa"><img class="phone" src="<?php echo trailingslashit(get_theme_root_uri())?>air-craft/img/sabre-phone-flat-1.png" alt="AC Sabre Instrument View"/><i class="fa fa-play-circle-o"></i></a>
         <img class="title" src="<?php echo trailingslashit(get_theme_root_uri())?>air-craft/img/ac-sabre-text.png" alt="AC Sabre"/>
         <p class="byline">Musical Instrument, Evolved</p>
-        <div class="call-to-action">
+        		<div class="call-to-action">
             <a  href="<?php echo $demo_video?>"
                 id="video-play-btn"
-                class="row video colorbox prevent-underline-on-fa"><i class="fa fa-play-circle-o"></i> <span>Watch the Demo</span></a></div>
-        <div class="row subscribe">
+                class="row video colorbox prevent-underline-on-fa"><i class="fa fa-play-circle-o"></i> <span>Watch the Demo</span></a></div>                
+        <div class=""><a target="_blank" href="https://itunes.apple.com/gb/app/id1039046999?mt=8&at=1000lob4&ct=website" style="position: relative; left: 6px; display:inline-block;overflow:hidden;background:url(https://linkmaker.itunes.apple.com/images/badges/en-us/badge_appstore-lrg.svg) no-repeat;width:165px;height:40px; zoom:1.5"></a></div>
+
+<!-- <div class="row subscribe">
             <i class="fa fa-envelope"></i>
             <div>
-                <p class="form-header">Launching Soon</p>
                 <form method="post" action="<?php echo $mailchimp_url ?>">
-                    <input type="email" class="email" name="EMAIL" placeholder="GET NOTIFIED" required />
+                    <input type="email" class="email" name="EMAIL" placeholder="News, sales, freebies..." required />
                     <button type="submit">SUBMIT</button>
                     <div style="position: absolute; left: -5000px;">
                         <input type="text" name="<?php echo $mailchimp_key?>" tabindex="-1" value="">
@@ -61,7 +62,7 @@ $mailchimp_key = ot_get_option('ac-mailchimp-form-key');
                     <input type="hidden" name="ORIGIN" value="sabre-home" />
                 </form>
             </div>
-        </div>
-
+        </div> -->
+        
     </section>
 </div>

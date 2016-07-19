@@ -1148,7 +1148,7 @@ SECTION.widget {
       color: #d4d2c1;
       width: 100%;
       text-align: center;
-      margin: 0 0 1.7em;
+      margin: 0 0 1em;
       line-height: 1rem; }
     SECTION.widget.sabre A.video {
       display: block;
@@ -1164,7 +1164,7 @@ SECTION.widget {
     SECTION.widget.sabre .call-to-action {
       width: auto;
       left: 0;
-      margin: 1em auto 0; }
+      margin: 0em auto 0; }
       SECTION.widget.sabre .call-to-action .row {
         height: 40px !important; }
       SECTION.widget.sabre .call-to-action * {
