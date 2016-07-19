@@ -58,18 +58,17 @@ $NEWS_CATEG_ID = 10;
 						href="<?php echo $demo_video?>"
 						id="video-play-btn" 
 						class="row video colorbox prevent-underline-on-fa"><i class="fa fa-play-circle-o"></i> <span>Watch the Demo</span></a>
-						<div class="row subscribe">
-							<i class="fa fa-envelope"></i> 
-							<div>
-								<div class="text">Launching Soon</div>
-                                <form method="post" action="<?php echo $mailchimp_url ?>">
+						<div class="row appstore">
+							<i class=""></i> 
+							<div><a target="_blank" href="https://itunes.apple.com/gb/app/id1039046999?mt=8&at=1000lob4&ct=website" style="display:inline-block;overflow:hidden;background:url(https://linkmaker.itunes.apple.com/images/badges/en-us/badge_appstore-lrg.svg) no-repeat;width:200px;height:48px;zoom:1.2"></a>
+                                <!--<form method="post" action="<?php echo $mailchimp_url ?>">
                                     <input type="email" class="email" name="EMAIL" placeholder="GET NOTIFIED" required />
                                     <button type="submit">SUBMIT</button>
                                     <div style="position: absolute; left: -5000px;">
                                         <input type="text" name="<?php echo $mailchimp_key?>" tabindex="-1" value="">
                                     </div>
                                     <input type="hidden" name="ORIGIN" value="sabre-home" />
-                                </form>
+                                </form>-->
 							</div>
 						</div>
 					</div>	
@@ -89,18 +88,11 @@ $NEWS_CATEG_ID = 10;
 				</div>
 				<div class="description">
 					<?php the_post(); the_content() ?>
-					<h2>Coming Soon to the App Store</h2>
-					<div class="form">
-						<i class="fa fa-envelope"></i> 
-						<form method="post" action="<?php echo $mailchimp_url ?>">
-							<input type="email" class="email" name="EMAIL" placeholder="YOUR EMAIL" required />
-							<button type="submit">GET NOTIFIED</button>
-							<div style="position: absolute; left: -5000px;">
-								<input type="text" name="<?php echo $mailchimp_key?>" tabindex="-1" value="">
-							</div>
-						<input type="hidden" name="ORIGIN" value="sabre-home" />
-					</form>
+					<h2>Available Now on the App Store</h2>
+					<div class="calltoaction">
+						<a target="_blank" href="https://itunes.apple.com/gb/app/id1039046999?mt=8&at=1000lob4&ct=website" style="margin: 0.75em auto; display:block;overflow:hidden;background:url(https://linkmaker.itunes.apple.com/images/badges/en-us/badge_appstore-lrg.svg) no-repeat;width:138px;height:43px;zoom:2"></a>
 					</div>
+					
 				</div>
 			</div>
 		</div>

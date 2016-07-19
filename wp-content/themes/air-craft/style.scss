@@ -522,6 +522,8 @@ h1.title-text {
         }
     }
     .row.subscribe I { font-size: 35px; }
+    
+    .row.appstore > DIV { position: relative; left: -30px}
     A *,
     A {
         text-decoration: none !important;
@@ -637,10 +639,10 @@ h1.title-text {
 			text-align: center;
             max-width: 50rem;
 		}
-		.form {
+		.calltoaction {
 			margin: 0 auto;
-			width: 460px;
-			& > * { display: table-cell; vertical-align: middle; }
+			// width: 460px;
+			// & > * { display: table-cell; vertical-align: middle; }
 			I {
 				font-size: 55px;
 				color: $dim-yellow-2;

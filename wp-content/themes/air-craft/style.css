@@ -490,6 +490,9 @@ h1.title-text {
       text-align: left; }
   .call-to-action .row.subscribe I {
     font-size: 35px; }
+  .call-to-action .row.appstore > DIV {
+    position: relative;
+    left: -30px; }
   .call-to-action A *,
   .call-to-action A {
     text-decoration: none !important; }
@@ -582,20 +585,16 @@ h1.title-text {
     color: #d4d2c1;
     text-align: center;
     max-width: 50rem; }
-  .home-section .description .form {
-    margin: 0 auto;
-    width: 460px; }
-    .home-section .description .form > * {
-      display: table-cell;
-      vertical-align: middle; }
-    .home-section .description .form I {
+  .home-section .description .calltoaction {
+    margin: 0 auto; }
+    .home-section .description .calltoaction I {
       font-size: 55px;
       color: #d4d2c1;
       padding-right: 25px; }
-    .home-section .description .form FORM {
+    .home-section .description .calltoaction FORM {
       position: relative;
       top: 2px; }
-    .home-section .description .form INPUT.email {
+    .home-section .description .calltoaction INPUT.email {
       display: inline-block;
       background-color: #d4ccc1;
       width: 255px;
@@ -609,15 +608,15 @@ h1.title-text {
       margin: 0;
       /* firefox 19+ */
       /* ie */ }
-      .home-section .description .form INPUT.email::-webkit-input-placeholder {
+      .home-section .description .calltoaction INPUT.email::-webkit-input-placeholder {
         color: #1a1e23; }
-      .home-section .description .form INPUT.email::-moz-placeholder {
+      .home-section .description .calltoaction INPUT.email::-moz-placeholder {
         color: #1a1e23; }
-      .home-section .description .form INPUT.email:-ms-input-placeholder {
+      .home-section .description .calltoaction INPUT.email:-ms-input-placeholder {
         color: #1a1e23; }
-      .home-section .description .form INPUT.email:-moz-placeholder {
+      .home-section .description .calltoaction INPUT.email:-moz-placeholder {
         color: #1a1e23; }
-    .home-section .description .form BUTTON {
+    .home-section .description .calltoaction BUTTON {
       height: 31px;
       width: 118px;
       border: 2px solid #d4d2c1;
