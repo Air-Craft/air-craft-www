@@ -6,5 +6,4 @@ $vendorDir = dirname(dirname(__FILE__));
 $baseDir = dirname($vendorDir);
 
 return array(
-    'Amarkal' => array($vendorDir . '/askupa-software/amarkal-framework'),
 );

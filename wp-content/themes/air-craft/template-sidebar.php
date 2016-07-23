@@ -18,9 +18,10 @@ $mailchimp_key = ot_get_option('ac-mailchimp-form-key');
         <?php if (!is_page()): ?>
         <h3>Categories</h3>
         <ul>
-            <li><a href="/news" alt="News">News</a></li>
-            <li><a href="/music" alt="Music">Music</a></li>
+            <li><a href="/news" alt="Air Craft News">Air Craft</a></li>
+            <li><a href="/music-production" alt="Music Production">Music Production</a></li>
             <li><a href="/code" alt="Code">Code</a></li>
+            
             <?php
         /*$categories = get_categories( array(
             'orderby' => 'name',

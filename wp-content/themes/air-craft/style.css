@@ -388,6 +388,9 @@ H1 A, H1 A:not([class]), H2 A, H2 A:not([class]), H3 A, H3 A:not([class]), H4 A,
 h1 {
   line-height: 40px; }
 
+article h2.first {
+  margin-top: 0em; }
+
 h2 {
   margin: 3rem 0 1.3rem; }
 
@@ -817,6 +820,11 @@ BODY.blog .color-overlay {
   color: #fffbe0 !important;
   font-size: 3.5em; }
 
+BODY.archive ARTICLE H2, BODY.blog ARTICLE H2 {
+  display: none; }
+  BODY.archive ARTICLE H2.title, BODY.blog ARTICLE H2.title {
+    display: block; }
+
 ARTICLE H2.title,
 ARTICLE H2.title A {
   color: #d4d2c1 !important;
@@ -894,6 +902,10 @@ A.more-link {
   margin: 1.8rem auto; }
 .page-single H2, .page-single H3, .page-single H4, .page-single H5, .page-single H6 {
   font-weight: 300; }
+.page-single DL DT {
+  width: 98% !important; }
+  .page-single DL DT A IMG {
+    border: none !important; }
 .page-single .coll-accordion .accordion dd {
   border: 1px solid rgba(163, 161, 143, 0.23); }
   .page-single .coll-accordion .accordion dd .content {
@@ -929,10 +941,10 @@ BODY.single {
     max-width: 720px;
     font-family: "Roboto", "Helvetica Neue", san-serif !important;
     font-weight: 200 !important;
-    font-size: 2.0em;
+    font-size: 2.4rem;
     letter-spacing: -1px;
     word-spacing: 0.2rem;
-    line-height: 2rem;
+    line-height: 2.4rem;
     text-transform: uppercase; }
   BODY.single .coll-single section.title-container {
     bottom: -1em !important; }
@@ -1121,7 +1133,7 @@ SECTION.widget {
           font-family: "Roboto", "Helvetica Neue", san-serif;
           text-transform: uppercase;
           font-weight: 200;
-          font-size: 30px;
+          font-size: 22px;
           line-height: 2.3rem;
           margin: 0 0 0em;
           color: #d4d2c1; }

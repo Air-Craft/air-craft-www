@@ -1,9 +1,9 @@
 === Mivhak Syntax Highlighter ===
-Contributors: Askupa Software
-Tags: syntax highlighter, code prettifier, highlighting, syntax, google-code-prettify, code snippet, formatting, programming, software development.
+Contributors: Askupa Software, ykadosh
+Tags: editor, code editor, highlighter, syntax highlighter, code prettifier, highlighting, syntax, ace editor, programming
 Requires at least: 3.0
-Tested up to: 4.4
-Stable tag: 1.3.3
+Tested up to: 4.5.3
+Stable tag: 1.3.6
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -22,7 +22,7 @@ Additionally, code can be easily inserted to both the HTML and the visual editor
 **Features**
 
 * Lightweight - minified CSS and JS, language scripts and themes are loaded on request
-* Supports 100+ different programming languages
+* Supports 130+ different programming languages
 * 36 different skins
 * Visual + HTML editor code insertion buttons
 * Backend code editor with live syntax highlighting and error checking
@@ -38,6 +38,13 @@ Additionally, code can be easily inserted to both the HTML and the visual editor
 * [Official Page](http://products.askupasoftware.com/mivhak/)
 * [Examples](http://products.askupasoftware.com/mivhak/examples/)
 * [Documentation](http://products.askupasoftware.com/mivhak/documentation/)
+
+**Available Translations**
+
+* English
+* Hebrew
+* German
+* Danish
 
 == Installation ==
 
@@ -58,6 +65,20 @@ Additionally, code can be easily inserted to both the HTML and the visual editor
 6. The code insertion/edition popup window
 
 == Changelog ==
+
+= 1.3.6 =
+* (FIX) Moved render blocking scripts to footer
+* (NEW) Added 5 new languages
+
+= 1.3.5 =
+* (NEW) Added a Danish translation (Thanks Henrik Gregersen!)
+* (FIX) Made TinyMCE button public facing as well
+
+= 1.3.4 =
+* (NEW) Added 2 new translations: Hebrew & German
+* (NEW) Added a .pot file for internationalization
+* (UPDATE) Changed internal file structure
+* (UPDATE) Updated Ace Editor to the latest version (1.2.3)
 
 = 1.3.3 =
 * (NEW) Added support for Jetpack Markdown code parsing

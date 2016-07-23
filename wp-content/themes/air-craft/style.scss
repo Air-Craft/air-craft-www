@@ -413,6 +413,7 @@ H1, H2, H3, H4, H5, H6 {
 h1 {
     line-height: 40px;
 }
+article h2.first { margin-top: 0em; }
 h2 { margin: 3rem 0 1.3rem}
 h3 {
     font-size: 1.8em;
@@ -911,6 +912,13 @@ BODY.blog .color-overlay { opacity: 0.5 !important}
     font-size: 3.5em;
 }
 
+BODY.archive, BODY.blog {
+  ARTICLE H2 {
+    display: none;
+    &.title { display: block; }
+  }
+}
+
 ARTICLE H2.title,
 ARTICLE H2.title A {
     color: $dim-yellow-2 !important;
@@ -997,6 +1005,11 @@ A.more-link {
     IMG { margin: 1.8rem auto;}
     H2, H3, H4, H5, H6 { font-weight: 300; }
 
+    DL DT { 
+      width: 98% !important; 
+      A IMG { border: none !important;}  
+    } // make gallery images size correctly
+
     .coll-accordion .accordion dd {
 
         border: 1px solid rgba(163, 161, 143, 0.23);
@@ -1040,10 +1053,10 @@ BODY.single {
     max-width: 720px;
     font-family: $roboto-font-stack !important;
     font-weight: 200 !important;
-    font-size: 2.0em;
+    font-size: 2.4rem;
     letter-spacing: -1px;
     word-spacing: 0.2rem;
-    line-height: 2rem;
+    line-height: 2.4rem;
     text-transform: uppercase;    
 }
     .coll-single section.title-container { bottom: -1em !important;}
@@ -1262,7 +1275,7 @@ SECTION.widget {
                     font-family: $roboto-font-stack;
                     text-transform: uppercase;
                     font-weight: 200;
-                    font-size: 30px;
+                    font-size: 22px;
                     line-height: 2.3rem;
                     margin: 0 0 0em;
                     color: $dim-yellow-2;

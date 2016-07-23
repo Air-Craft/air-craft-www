@@ -46,11 +46,13 @@ $menupos = ($menupos) ? $menupos : 'coll-right';
 
 $facebook_page = ot_get_option('ac-facebook-page');
 $twitter_page = ot_get_option('ac-twitter-page');
+$instagram_page = ot_get_option('ac-instagram-page');
 
 $social_menu =<<<EOF
 <ul class="social sf-menu sf-js-enabled sf-arrows">
-	<li><a target="_blank" href="{$facebook_page}"><i class="fa fa-facebook"></i></a></li>
+	<!--<li><a target="_blank" href="{$facebook_page}"><i class="fa fa-facebook"></i></a></li>-->
 	<li><a target="_blank" href="{$twitter_page}"><i class="fa fa-twitter"></i></a></li>
+	<li><a target="_blank" href="{$instagram_page}"><i class="fa fa-instagram"></i></a></li>
 </ul>
 EOF;
 ?>

@@ -1,0 +1,7 @@
+#These next two lines will already exist in your .htaccess file
+ RewriteEngine On
+ RewriteBase /
+ # Add these lines right after the preceding two
+ RewriteCond %{REQUEST_FILENAME} ^.*(.zip)$
+ RewriteCond %{HTTP_COOKIE} !^.*can_download.*$ [NC]
+ RewriteRule . - [R=403,L]
