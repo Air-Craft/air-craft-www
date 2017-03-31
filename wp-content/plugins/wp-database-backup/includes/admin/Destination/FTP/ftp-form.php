@@ -59,6 +59,7 @@ $opt_val6 = get_option($opt_name6);
 $opt_val7 = get_option($opt_name7);
 $opt_val8 = get_option($opt_name8);
 $opt_val9 = get_option($opt_name9);
+$wp_db_backup_destination_FTP=get_option('wp_db_backup_destination_FTP');
 
 // BUTTON 3: 
 // UPDATE DIRECTORY
@@ -92,7 +93,7 @@ if (isset($_POST[$hidden_field_name]) && $_POST[$hidden_field_name] == 'Y') {
     $opt_val = sanitize_text_field($_POST[$data_field_name]);
     $opt_val2 = sanitize_text_field($_POST[$data_field_name2]);
     $opt_val3 = sanitize_text_field($_POST[$data_field_name3]);
-    $opt_val4 = sanitize_text_field($_POST[$data_field_name4]);
+    $opt_val4 = sanitize_text_field($_POST[$data_field_name4]);    
     if (isset($_POST[$data_field_name5])) {
         $opt_val5 = sanitize_text_field($_POST[$data_field_name5]);
     }
@@ -103,6 +104,12 @@ if (isset($_POST[$hidden_field_name]) && $_POST[$hidden_field_name] == 'Y') {
     update_option($opt_name2, $opt_val2);
     update_option($opt_name3, $opt_val3);
     update_option($opt_name4, $opt_val4);
+    if(isset($_POST['wp_db_backup_destination_FTP'])){
+     update_option('wp_db_backup_destination_FTP',1);
+   }else{
+     update_option('wp_db_backup_destination_FTP',0);
+   }
+   $wp_db_backup_destination_FTP=get_option('wp_db_backup_destination_FTP');
     if (isset($_POST[$data_field_name5])) {
         update_option($opt_name5, $opt_val5);
     }
@@ -164,11 +171,18 @@ if (isset($_POST[$hidden_field_name]) && $_POST[$hidden_field_name] == 'Test Con
 <style>td, th {
         padding: 5px;
     }</style>
-<p>Enter your FTP details for your offsite backup repository. Leave these blank for local backups.</p>		
+<p>Enter your FTP details for your offsite backup repository. Leave these blank for local backups or Disable FTP Destination.</p>		
 <form  class="form-group" name="form1" method="post" action="">
     <input type="hidden" name="<?php echo $hidden_field_name; ?>" value="Y">
     <input name="wpdbbackup_update_setting" type="hidden" value="<?php echo wp_create_nonce('wpdbbackup-update-setting'); ?>" />
+<?php  wp_nonce_field('wp-database-backup'); ?>
 
+    <div class="row form-group">
+        <label class="col-sm-2" for="wp_db_backup_destination_FTP">Enable FTP Destination:</label>
+        <div class="col-sm-6">
+            <input type="checkbox" id="wp_db_backup_destination_FTP" <?php echo (isset($wp_db_backup_destination_FTP) && $wp_db_backup_destination_FTP==1) ? 'checked' : '' ?> name="wp_db_backup_destination_FTP">
+        </div>
+    </div>
 
     <div class="row form-group">
         <label class="col-sm-2" for="FTP_host">FTP Host:</label>
@@ -211,7 +225,7 @@ if (isset($_POST[$hidden_field_name]) && $_POST[$hidden_field_name] == 'Test Con
         </div>
     </div>
 
-    <p><input type="submit" name="Submit" class="btn btn-primary" value="<?php esc_attr_e('Save FTP Details') ?>" />&nbsp;
+    <p><input type="submit" name="Submit" class="btn btn-primary" value="<?php esc_attr_e('Save') ?>" />&nbsp;
         <input type="submit" name="<?php echo $hidden_field_name; ?>" class="btn btn-secondary" value="Test Connection" />
 
         <br />

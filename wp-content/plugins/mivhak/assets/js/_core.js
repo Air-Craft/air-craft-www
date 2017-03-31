@@ -314,5 +314,5 @@
     };
     
     // Run!
-    $(document).mivhak(mivhak_settings);
+    $(document).mivhak(typeof mivhak_settings === 'undefined' ? {} : mivhak_settings);
 }(window.jQuery));

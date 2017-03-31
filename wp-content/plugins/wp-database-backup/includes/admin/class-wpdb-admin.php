@@ -30,6 +30,15 @@ class WPDB_Admin {
     }
 
     function wp_db_backup_admin_init() {
+         // Start Fixed Vulnerability 04-08-2016 for data save in options
+         if (isset($_GET['page']) && $_GET['page']=='wp-database-backup'){
+             if ( ! empty( $_POST) && !(isset($_POST['option_page']) && $_POST['option_page']=='wp_db_backup_options')) {
+                        $nonce=$_REQUEST['_wpnonce'];
+                         if (! wp_verify_nonce($nonce, 'wp-database-backup') ) die("WPDB :: Invalid Access");
+                }
+         }
+         // End Fixed Vulnerability 04-08-2016 for data save in options
+
         if (isset($_GET['page']) && $_GET['page'] == 'wp-database-backup' && current_user_can('manage_options')) {
             setcookie('can_download', 1, 0, COOKIEPATH, COOKIE_DOMAIN);
             if (SITECOOKIEPATH != COOKIEPATH) {
@@ -67,6 +76,15 @@ class WPDB_Admin {
                 $email_attachment = sanitize_text_field($_POST['wp_db_backup_email_attachment']);
                 update_option('wp_db_backup_email_attachment', $email_attachment);
             }
+            if(isset($_POST['Submit']) && $_POST['Submit']=='Save Settings'){
+            if(isset($_POST['wp_db_backup_destination_Email'])){
+                 update_option('wp_db_backup_destination_Email',1);
+               }else{
+                 update_option('wp_db_backup_destination_Email',0);
+               }  
+            }
+               $wp_db_backup_destination_Email=get_option('wp_db_backup_destination_Email');          
+
             if (isset($_GET['page']) && $_GET['page'] == "wp-database-backup" && isset($_GET['action']) && $_GET['action'] == "unlink") {
                 // Specify the target directory and add forward slash
                 $dir = plugin_dir_path(__FILE__) . "Destination/Dropbox/tokens/";
@@ -83,13 +101,14 @@ class WPDB_Admin {
                 // Close the directory
                 closedir($dirHandle);
                 wp_redirect(site_url() . '/wp-admin/tools.php?page=wp-database-backup');
-            }
-            if (isset($_GET['action']) && current_user_can('manage_options')) {
-                switch ((string) $_GET['action']) {
-
-                    case 'createdbbackup':
-                        $this->wp_db_backup_event_process();
-                        wp_redirect(site_url() . '/wp-admin/tools.php?page=wp-database-backup&notification=create');
+            }            
+            $nonce = isset($_REQUEST['_wpnonce']) ? $_REQUEST['_wpnonce'] : '';
+            if (isset($_REQUEST['_wpnonce']) && wp_verify_nonce($nonce, 'wp-database-backup' ) ) {
+                if (isset($_GET['action']) && current_user_can('manage_options')) {
+                 switch ((string) $_GET['action']) {
+                    case 'createdbbackup':                            
+                           $this->wp_db_backup_event_process();                 
+                           wp_redirect(site_url() . '/wp-admin/tools.php?page=wp-database-backup&notification=create');
                         break;
                     case 'removebackup':
                         $index = (int) $_GET['index'];
@@ -108,6 +127,31 @@ class WPDB_Admin {
                         @unlink($sqlFile[0] . '.sql');
                         update_option('wp_db_backup_backups', $newoptions);
                         wp_redirect(site_url() . '/wp-admin/tools.php?page=wp-database-backup&notification=delete');
+                        break;
+                    case 'clear_temp_db_backup_file':                        
+                        $options = get_option('wp_db_backup_backups');
+                        $newoptions = array();
+                        $backup_check_list=array('.htaccess','index.php');                        
+                        $deleteMessage ="WPDB : Deleted Files:";
+                        foreach ($options as $option) {
+                            $backup_check_list[]=$option['filename'];
+                        }
+                        $path_info = wp_upload_dir();                       
+                        $wp_db_backup_path = $path_info['basedir'] . '/db-backup';
+                                // Open a directory, and read its contents
+                                if (is_dir($wp_db_backup_path)){
+                                  if ($dh = opendir($wp_db_backup_path)){
+                                    while (($file = readdir($dh)) !== false){
+                                        if(!(in_array($file, $backup_check_list))) {
+                                            @unlink($wp_db_backup_path.'/'.$file);
+                                            $deleteMessage.=" ".$file;                                         
+                                       }
+                                    }
+                                    closedir($dh);
+                                  }
+                                   error_log($deleteMessage);                                   
+                                }
+                        wp_redirect(site_url() . '/wp-admin/tools.php?page=wp-database-backup&notification=clear_temp_db_backup_file');
                         break;
                     case 'restorebackup':
                         $index = (int) $_GET['index'];
@@ -197,6 +241,7 @@ class WPDB_Admin {
 
                     /* END: Restore Database Content */
                 }
+             }
             }
 
             register_setting('wp_db_backup_options', 'wp_db_backup_options', array($this, 'wp_db_backup_validate'));
@@ -232,7 +277,7 @@ class WPDB_Admin {
                 </div><?php } ?>
             <div class="panel panel-info">
                 <div class="panel-heading">
-                    <h3><a href="http://walkeprashant.wordpress.com" target="blank"><img src="<?php echo WPDB_PLUGIN_URL . '/assets/images/wp-database-backup.png'; ?>" ></a>Database Backup Settings <a href="http://www.wpseeds.com/product/wp-all-backup/" target="_blank"><span style='float:right' class="label label-success">Get Pro 'WP All Backup' Plugin</span></a></h3>
+                    <h3><a href="http://www.wpseeds.com/documentation/docs/wp-database-backup" target="blank"><img src="<?php echo WPDB_PLUGIN_URL . '/assets/images/wp-database-backup.png'; ?>" ></a>Database Backup Settings <a href="http://www.wpseeds.com/product/wp-all-backup/" target="_blank"><span style='float:right' class="label label-success">Get Pro 'WP All Backup' Plugin</span></a></h3>
                 </div>
                 <div class="panel-body">
                     <ul class="nav nav-tabs">
@@ -249,8 +294,9 @@ class WPDB_Admin {
                     <?php
                     echo '<div class="tab-content">';
                     echo '<div class="tab-pane active"  id="db_home">';
-                    echo '<p class="submit">';
-                    echo '<a href="' . site_url() . '/wp-admin/tools.php?page=wp-database-backup&action=createdbbackup" class="btn btn-primary"><span class="glyphicon glyphicon-plus-sign"></span> Create New Database Backup</a>';
+                    echo '<p class="submit">';                   
+                    $nonce = wp_create_nonce( 'wp-database-backup' );
+                    echo '<a href="' . site_url() . '/wp-admin/tools.php?page=wp-database-backup&action=createdbbackup&_wpnonce='.$nonce.'" class="btn btn-primary"><span class="glyphicon glyphicon-plus-sign"></span> Create New Database Backup</a>';
                     echo '</p>';
                     ?>
 
@@ -288,8 +334,8 @@ class WPDB_Admin {
                             echo '<a href="' . $option['url'] . '" style="color: #21759B;">';
                             echo '<span class="glyphicon glyphicon-download-alt"></span> Download</a></td>';
                             echo '<td>' . $this->wp_db_backup_format_bytes($option['size']) . '</td>';
-                            echo '<td><a href="' . site_url() . '/wp-admin/tools.php?page=wp-database-backup&action=removebackup&index=' . ($count - 1) . '" class="btn btn-default"><span style="color:red" class="glyphicon glyphicon-remove"></span> Remove Database Backup<a/></td>';
-                            echo '<td><a href="' . site_url() . '/wp-admin/tools.php?page=wp-database-backup&action=restorebackup&index=' . ($count - 1) . '" class="btn btn-default"><span class="glyphicon glyphicon-refresh" style="color:blue"></span> Restore Database Backup<a/></td>';
+                            echo '<td><a href="' . site_url() . '/wp-admin/tools.php?page=wp-database-backup&action=removebackup&_wpnonce='.$nonce.'&index=' . ($count - 1) . '" class="btn btn-default"><span style="color:red" class="glyphicon glyphicon-remove"></span> Remove Database Backup<a/></td>';
+                            echo '<td><a href="' . site_url() . '/wp-admin/tools.php?page=wp-database-backup&action=restorebackup&_wpnonce='.$nonce.'&index=' . ($count - 1) . '" class="btn btn-default"><span class="glyphicon glyphicon-refresh" style="color:blue"></span> Restore Database Backup<a/></td>';
                             echo '</tr>';
                             $count++;
                         }
@@ -312,9 +358,10 @@ class WPDB_Admin {
 
                     echo '<div class="tab-pane" id="db_schedul">';
                     echo '<form method="post" action="options.php" name="wp_auto_commenter_form">';
+                    wp_nonce_field('wp-database-backup');
                     settings_fields('wp_db_backup_options');
                     do_settings_sections('wp-database-backup');
-
+                     
                     echo '<div class="row form-group"><label class="col-sm-2" for="enable_autobackups">Enable Auto Backups</label>';
                     echo '<div class="col-sm-2"><input type="checkbox" id="enable_autobackups" name="wp_db_backup_options[enable_autobackups]" value="1" ' . @checked(1, $settings['enable_autobackups'], false) . '/></div>';
                     echo '</div>';
@@ -461,7 +508,7 @@ class WPDB_Admin {
                                             <button type="button" class="btn btn-default"><a href='http://www.wpseeds.com/documentation/docs/wp-database-backup'>Documentation</a></button>
                                             <p>If you want more feature or any suggestion then drop me mail we are try to implement in our wp-database-backup plugin and also try to make it more user friendly</p><p><span class="glyphicon glyphicon-envelope"></span> Drop Mail :walke.prashant28@gmail.com</p>
                                             If you like this plugin then Give <a target="_blank" href="http://wordpress.org/support/view/plugin-reviews/wp-database-backup" title="Rating" sl-processed="1">rating </a>on <a target="_blank" href="http://wordpress.org/support/view/plugin-reviews/wp-database-backup" title="Rating" sl-processed="1">WordPress.org</a></p>
-                                            <p></br><a title="WP-DB-Backup" href="http://walkeprashant.wordpress.com/wp-database-backup/" target="_blank">More Information</a></p>
+                                            <p></br><a title="WP-DB-Backup" href="http://www.wpseeds.com/documentation/docs/wp-database-backup" target="_blank">More Information</a></p>
                                             <p >Support us to improve plugin. your idea and support are always welcome.<br>
                                                 <a target="_blank" href="https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&amp;hosted_button_id=387BZU5UNQ4LA" sl-processed="1"><img alt="donate" src="http://walkeprashant.files.wordpress.com/2014/09/donate.jpg?w=940" class="alignleft wp-image-304 size-full"></a></p>
 
@@ -530,6 +577,13 @@ class WPDB_Admin {
                                         </div>
 
                                     </div>
+                                </div>
+
+                                 <div class=""><br>
+                                                    <a type="button" href="<?php echo site_url() ?>/wp-admin/tools.php?page=wp-database-backup&action=clear_temp_db_backup_file&_wpnonce=<?php echo $nonce ?>" class="btn btn-warning"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span> Clear all old/temp database backup files</a>
+                                                    <p>Click above button to clear all your old or temporary created database backup files. It only delete file from backup directory which is not in 'Database Backups' listing(all other file excluding backup files listed in 'Database Backups' ). Before using this option make sure that you have save your database backup on safe place.</p>
+                                                    <p>The disk that your backup is saved on doesn’t have enough free space? Backup disk is almost full? Low disk space for backup? Backup failed due to lack of space? As you may set up a schedule to automatically do backup daily or weekly, and the size of disk space is limited, so your backup disk will run out of space quickly or someday. It is a real pain to manually delete old backups. Don’t worry about it. WP Database Backup makes it easy to delete old/temparary backup files using this option.</p>
+
                                 </div>
 
                                 <div class="row list-group-item">
@@ -837,7 +891,7 @@ class WPDB_Admin {
                 </div>
                 <div class="tab-pane" id="db_advanced">               
                     <h4>A 'WP ALL Backup' Plugin will backup and restore your entire site at will,
-                        complete with FTP & Dropbox integration.</h4>
+                        complete with Dropbox,FTP,Email,Google drive, Amazon S3 integration.</h4>
                     <h2>Pro Features </h2><h4><?php echo $coupon ?></h4>
                     <div class="row">
                         <div class="col-md-3"><span class="glyphicon glyphicon-ok-sign" aria-hidden="true"></span> Complete Backup</div>
@@ -913,16 +967,17 @@ class WPDB_Admin {
                             }
                             ?>
                             <form action="" method="post">
+                            <?php  wp_nonce_field('wp-database-backup'); ?>
                                 <div class="input-group">
-                                    <span class="input-group-addon" id="sizing-addon2">Minimum Local Backups</span>
-                                    <input type="number" name="wp_local_db_backup_count" value="<?php echo $wp_local_db_backup_count ?>" class="form-control" placeholder="Minimum Local Backups" aria-describedby="sizing-addon2">
+                                    <span class="input-group-addon" id="sizing-addon2">Maximum Local Backups</span>
+                                    <input type="number" name="wp_local_db_backup_count" value="<?php echo $wp_local_db_backup_count ?>" class="form-control" placeholder="Maximum Local Backups" aria-describedby="sizing-addon2">
 
                                 </div>
-                                <div class="alert alert-default" role="alert"><span class="glyphicon glyphicon-info-sign" aria-hidden="true"></span> The minimum number of Local Database Backups that should be kept, regardless of their size.</br>Leave blank for keep unlimited database backups.</div>
+                                <div class="alert alert-default" role="alert"><span class="glyphicon glyphicon-info-sign" aria-hidden="true"></span> The maximum number of Local Database Backups that should be kept, regardless of their size.</br>Leave blank for keep unlimited database backups.</div>
                                 <hr>
                                 <div class="input-group">
                                     <input type="checkbox" <?php echo $checked ?> name="wp_db_log"> Enable Log.
-                                </div>
+                                </div>                               
                                 <hr>
                                 <div class="panel panel-default">
                                     <div class="panel-heading">
@@ -1319,7 +1374,7 @@ class WPDB_Admin {
         $source_directory = $this->wp_db_backup_wp_config_path();
 
         $path_info = wp_upload_dir();
-
+       $htassesText="";
         wp_mkdir_p($path_info['basedir'] . '/db-backup');
         fclose(fopen($path_info['basedir'] . '/db-backup/index.php', 'w'));
         //added htaccess file 08-05-2015 for prevent directory listing

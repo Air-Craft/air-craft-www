@@ -68,6 +68,7 @@ if (isset($_GET['code'])) {
                 <input type="hidden" name="wpdb_google_drive" value="Y">
                 <input name="wpdbbackup_update_google_setting" type="hidden" value="<?php echo wp_create_nonce('wpdbbackup-update-google-setting'); ?>" />
                 <?php
+                 wp_nonce_field('wp-database-backup'); 
                 $wpdb_dest_google_authCode = get_option('wpdb_dest_google_authCode');
                 $wpdb_dest_google_client_key = get_option('wpdb_dest_google_client_key');
                 $wpdb_dest_google_secret_key = get_option('wpdb_dest_google_secret_key');

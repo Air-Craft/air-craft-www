@@ -15,7 +15,10 @@ if (!defined('ABSPATH')) { header('Location: /'); die; }
 
 require_once(ILAB_CLASSES_DIR.'/ilab-media-tool-base.php');
 require_once(ILAB_CLASSES_DIR.'/ilab-media-tool-view.php');
-require_once(ILAB_VENDOR_DIR.'/autoload.php');
+
+if (file_exists(ILAB_VENDOR_DIR.'/autoload.php')) {
+    require_once(ILAB_VENDOR_DIR.'/autoload.php');
+}
 
 /**
  * Class ILabMediaImgixTool
@@ -240,7 +243,7 @@ class ILabMediaImgixTool extends ILabMediaToolBase
             $imgix->setSignKey($this->signingKey);
 
 
-        $is_crop=(count($size)<=2) || ((count($size)>=3) && ($size[2] == 'crop'));
+        $is_crop = ((count($size)>=3) && ($size[2] == 'crop'));
 
         $params=[
             'fit'=> ($is_crop) ? 'crop' : 'fit',
@@ -249,8 +252,10 @@ class ILabMediaImgixTool extends ILabMediaToolBase
             'fm'=>'jpg'
         ];
 
+        $imageFile = (isset($meta['s3'])) ? $meta['s3']['key'] : $meta['file'];
+
         $result=[
-            $imgix->createURL(str_replace('%2F','/',urlencode($meta['file'])),$params),
+            $imgix->createURL(str_replace('%2F','/',urlencode($imageFile)),$params),
             $size[0],
             $size[1]
         ];
@@ -292,8 +297,10 @@ class ILabMediaImgixTool extends ILabMediaToolBase
                 return null;
             }
 
+            $imageFile = (isset($meta['s3'])) ? $meta['s3']['key'] : $meta['file'];
+
             $result=[
-                $imgix->createURL(str_replace('%2F','/',urlencode($meta['file'])),($skipParams) ? [] : $params),
+                $imgix->createURL(str_replace('%2F','/',urlencode($imageFile)),($skipParams) ? [] : $params),
                 $meta['width'],
                 $meta['height'],
                 false
@@ -404,11 +411,13 @@ class ILabMediaImgixTool extends ILabMediaToolBase
 
         $params=$this->buildImgixParams($params,$mimetype);
 
+        $imageFile = (isset($meta['s3'])) ? $meta['s3']['key'] : $meta['file'];
+
         $result=[
-            $imgix->createURL(str_replace('%2F','/',urlencode($meta['file'])),$params),
+            $imgix->createURL(str_replace('%2F','/',urlencode($imageFile)),$params),
             $params['w'],
             $params['h'],
-            false
+            true
         ];
 
         return $result;
@@ -499,7 +508,7 @@ class ILabMediaImgixTool extends ILabMediaToolBase
                                 button.on('click',function(e){
                                     e.preventDefault();
 
-                                    ILabModal.loadURL("<?php echo relative_admin_url('admin-ajax.php')?>?action=ilab_imgix_edit_page&image_id="+image_id,false,null);
+                                    ILabModal.loadURL("<?php echo get_admin_url(null, 'admin-ajax.php')?>?action=ilab_imgix_edit_page&image_id="+image_id,false,null);
 
                                     return false;
                                 });
@@ -510,7 +519,7 @@ class ILabMediaImgixTool extends ILabMediaToolBase
                             var image_id=button.data('id');
                             e.preventDefault();
 
-                            ILabModal.loadURL("<?php echo relative_admin_url('admin-ajax.php')?>?action=ilab_imgix_edit_page&image_id="+image_id,false,null);
+                            ILabModal.loadURL("<?php echo get_admin_url(null, 'admin-ajax.php')?>?action=ilab_imgix_edit_page&image_id="+image_id,false,null);
 
                             return false;
                         });
@@ -544,7 +553,7 @@ class ILabMediaImgixTool extends ILabMediaToolBase
      */
     public function editPageURL($id, $size = 'full', $partial=false, $preset=null)
     {
-        $url=relative_admin_url('admin-ajax.php')."?action=ilab_imgix_edit_page&image_id=$id";
+        $url=get_admin_url(null, 'admin-ajax.php')."?action=ilab_imgix_edit_page&image_id=$id";
 
         if ($size!='full')
             $url.="&size=$size";

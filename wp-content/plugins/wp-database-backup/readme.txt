@@ -3,16 +3,19 @@ Contributors: walkeprashant
 Donate link:https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&amp;hosted_button_id=387BZU5UNQ4LA	
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
-Tags: Database backup,db backup ,backup, WordPress Database Backup, WP db backup,wp database backup,wp backup,wordpress backup, mysql backup,automatically database backup,website backup,website database backup,restore database backup,Store database backup on dropbox,backup on google drive,backup on amazon s3,ftp,email notification.
+Tags: Database backup,db backup, backup,database, WordPress Database Backup, WP db backup,wp database backup,wp backup,wordpress backup, mysql backup,automatically database backup,website backup,website database backup,restore database backup,Store database backup on dropbox,backup on google drive,backup on amazon s3,ftp,email notification.
 Requires at least: 3.1+
-Tested up to: 4.5
+Tested up to: 4.6.1
 Stable tag: trunk
 
 Create & Restore Database Backup easily on single click. Manual or automated backups (backup to Dropbox,Google drive,Amazon s3,FTP,Email).
 
 == Description ==
 
-WP Database Backup plugin helps you to create Database Backup and Restore Database Backup easily on single click.Manual or Automated Database Backups And also store database backup on safe place- Dropbox,FTP,Email,Google drive
+= Pro Version =
+* http://www.wpseeds.com/product/wp-all-backup/
+
+WP Database Backup plugin helps you to create Database Backup and Restore Database Backup easily on single click.Manual or Automated Database Backups And also store database backup on safe place- Dropbox,FTP,Email,Google drive, Amazon S3
 
 = Features =
 <ul>
@@ -87,8 +90,6 @@ WP Database Backup plugin helps you to Restore Database Backup easily on single 
 <li>Sort backup list (Date/Size)</li>
 <li>Easy To Install(Very easy to use)</li>
 <li>Simple to configure(very less configuration).</li>
-<li><strong>Support</strong></li>
-<li>Updates</li>
 <li>PclZip</li>
 <li><strong>Clone Site</strong></li>
 <li><strong>Move Site</strong></li>
@@ -97,6 +98,8 @@ WP Database Backup plugin helps you to Restore Database Backup easily on single 
 <li>Exclude Tables from your back ups.</li>
 <li>System Check (i.e backup folder permission, execution time etc)</li>
 <li>Disk space checkup(memory available).</li>
+<li><strong>Support</strong></li>
+<li>Updates</li>
 <li>And More....</li>
 </ul>
 
@@ -250,6 +253,34 @@ WP Database Backup plugin helps you to Restore Database Backup easily on single 
 * Fixed Amazon s3 collapse tab issue
 * Added documentation links in Help tab
 
+= 4.3.1 = 
+* 01-08-2016
+* Fixed CSRF and XSS vuln issue 
+
+= 4.3.2 = 
+* 02-08-2016
+* resolved urgent bug
+
+= 4.3.3 = 
+* 04-08-2016
+* Fixed CSRF and XSS vuln issue (suggestion by Chen Ruiqi)
+
+= 4.3.4 = 
+* 09-09-2016
+* Add Option Clear all old/temp database backup files (resolve isssue for low disk space):
+
+= 4.3.5 = 
+* 20-10-2016
+* Add Option Enable/Disable destination.
+
+= 4.3.6 = 
+* 21-10-2016
+* Fixed CSRF vulnerabilities issue (suggestion by Tristan)
+
+= 4.3.7 = 
+* 06-12-2016
+* Changed label Minimum Local Backups to Maximum Local Backups in Setting Tab
+
 == Frequently Asked Questions ==
 
  Q-How to  create database Backup?
@@ -296,9 +327,8 @@ Also Please make sure that you have write permission to Backup folder and also c
   
 == Upgrade Notice ==
 
-=4.3= 
-* Fixed Amazon s3 collapse tab issue
-* Added documentation links in Help tab
+=4.3.7= 
+* Changed label Minimum Local Backups to Maximum Local Backups in Setting Tab
 
 == Official Site ==
 * http://www.wpseeds.com/documentation/docs/wp-database-backup

@@ -14,9 +14,15 @@ if (isset($_POST['wpdb_amazon_s3']) && $_POST['wpdb_amazon_s3'] == 'Y') {
     update_option('wpdb_dest_amazon_s3_bucket', sanitize_text_field($_POST['wpdb_dest_amazon_s3_bucket']));
     update_option('wpdb_dest_amazon_s3_bucket_key', sanitize_text_field($_POST['wpdb_dest_amazon_s3_bucket_key']));
     update_option('wpdb_dest_amazon_s3_bucket_secret', sanitize_text_field($_POST['wpdb_dest_amazon_s3_bucket_secret']));
+    if(isset($_POST['wp_db_backup_destination_s3'])){
+     update_option('wp_db_backup_destination_s3',1);
+   }else{
+     update_option('wp_db_backup_destination_s3',0);
+   }  
     // Put a "settings updated" message on the screen
     $updateMsg = '<div class="updated"><p><strong>Your amazon s3 setting has been saved.</strong></p></div>';
 }
+ $wp_db_backup_destination_s3=get_option('wp_db_backup_destination_s3');
 ?>
 <div class="panel panel-default">
     <div class="panel-heading">
@@ -62,10 +68,19 @@ if (isset($_POST['wpdb_amazon_s3']) && $_POST['wpdb_amazon_s3'] == 'Y') {
             }
             ?>
             <p><a href="http://www.wpseeds.com/wp-database-backup/#amazon" target="_blank"><span class="glyphicon glyphicon-question-sign" aria-hidden="true"></span></a> Back up WordPress database to Amazon S3.</p>
-            <p>Enter your Amazon S3 details for your offsite backup. Leave these blank for local backups</p>
+            <p>Enter your Amazon S3 details for your offsite backup. Leave these blank for local backups OR Disable Amazon S3 Destination</p>
             <form  class="form-group" name="amazons3" method="post" action="">
+
+                  <div class="row form-group">
+                    <label class="col-sm-2" for="wp_db_backup_destination_s3">Enable Amazon S3 Destination:</label>
+                    <div class="col-sm-6">
+                        <input type="checkbox" id="wp_db_backup_destination_s3" <?php echo (isset($wp_db_backup_destination_s3) && $wp_db_backup_destination_s3==1) ? 'checked' : '' ?> name="wp_db_backup_destination_s3">
+                </div>
+
+                </div>
                 <input type="hidden" name="wpdb_amazon_s3" value="Y">
                 <input name="wpdbbackup_update_amazon_setting" type="hidden" value="<?php echo wp_create_nonce('wpdbbackup-update-amazon-setting'); ?>" />
+                <?php  wp_nonce_field('wp-database-backup'); ?>
                 <div class="row form-group">
                     <label class="col-sm-2" for="wpdb_dest_amazon_s3_bucket">Bucket Name:</label>
                     <div class="col-sm-6">

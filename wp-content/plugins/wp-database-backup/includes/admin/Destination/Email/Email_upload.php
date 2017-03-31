@@ -5,7 +5,8 @@ add_action('wp_db_backup_completed', array('WPDBBackupEmail', 'wp_db_backup_comp
 class WPDBBackupEmail {
 
     public static function wp_db_backup_completed(&$args) {
-        if (get_option('wp_db_backup_email_id')) {
+        $destination_Email=get_option('wp_db_backup_destination_Email');
+        if (isset($destination_Email) && $destination_Email==1 && get_option('wp_db_backup_email_id')) {
             $to = get_option('wp_db_backup_email_id');
             $subject = "Database Backup Created Successfully";
             $filename = $args[0];

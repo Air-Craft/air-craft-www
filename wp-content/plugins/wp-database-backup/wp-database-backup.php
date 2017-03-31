@@ -1,9 +1,9 @@
 <?php
 /*
 Plugin Name: WP Database Backup
-Plugin URI:http://www.wpseeds.com/wp-database-backup
+Plugin URI:http://www.wpseeds.com/documentation/docs/wp-database-backup
 Description: This plugin helps you to create/restore wordpress database backup. (Tools->WP-DB-Backup)
-Version: 4.3
+Version: 4.3.7
 Author:Prashant Walke
 Author URI:walkeprashant.in
 Text Domain: wpdbbkp
@@ -60,6 +60,8 @@ final class WPDatabaseBackup {
 	public function __construct() {
 		// Define constants
 		$this->define_constants();
+		register_activation_hook(__FILE__, array($this, 'installation'));
+		$this->installation();
 		// Include required files
 		$this->includes();
 	
@@ -85,6 +87,13 @@ final class WPDatabaseBackup {
                                 include_once( 'includes/admin/Destination/wp-backup-destination-upload-action.php' );
 
 }
+
+ function installation() {
+ 	      add_option('wp_db_backup_destination_FTP', 1);
+ 	      add_option('wp_db_backup_destination_Email', 1);
+ 	      add_option('wp_db_backup_destination_s3', 1);
+           
+        }
 
 	public function logger() {
 		_deprecated_function( 'Wpekaplugin->logger', '1.0', 'new WPDB_Logger()' );

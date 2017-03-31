@@ -1,9 +1,9 @@
 <?php
 
 function backupbreeze_preflight_problem($trouble) {
-    echo '<div class="error"><h3>Houston, we have a problem: </h3>' . $trouble . '<br /><br /></div>';
-    echo '<hr><br />';
-    exit;
+    error_log('<div class="error"><h3>Houston, we have a problem: </h3>' . $trouble . '<br /><br /></div>');
+
+   // exit;
 }
 
 // now let's see if we can connect to the FTP repo

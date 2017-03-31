@@ -30,6 +30,7 @@ class ILabMediaS3Tool extends ILabMediaToolBase {
     private $cdn = null;
     private $deleteOnUpload = false;
     private $deleteFromS3 = false;
+	private $prefixFormat = '';
 
     private $settingsError = false;
 
@@ -46,6 +47,7 @@ class ILabMediaS3Tool extends ILabMediaToolBase {
         $this->secret = get_option('ilab-media-s3-secret', getenv('ILAB_AWS_S3_ACCESS_SECRET'));
         $this->deleteOnUpload = get_option('ilab-media-s3-delete-uploads', false);
         $this->deleteFromS3 = get_option('ilab-media-s3-delete-from-s3', false);
+	    $this->prefixFormat = get_option('ilab-media-s3-prefix', '');
 
         $this->cdn = get_option('ilab-media-s3-cdn-base', getenv('ILAB_AWS_S3_CDN_BASE'));
         if ($this->cdn)
@@ -179,7 +181,11 @@ class ILabMediaS3Tool extends ILabMediaToolBase {
                             continue;
 
                         $file=$path_base.'/'.$size['file'];
-                        $data['sizes'][$key]=$this->processFile($s3,$upload_path,$file,$size);
+	                    if ($file == $data['file']) {
+		                    $data['sizes'][$key]['s3']=$data['s3'];
+	                    } else {
+		                    $data['sizes'][$key]=$this->processFile($s3,$upload_path,$file,$size);
+	                    }
                     }
                 }
             }
@@ -209,6 +215,10 @@ class ILabMediaS3Tool extends ILabMediaToolBase {
         if (file_is_displayable_image($upload['file']))
             return $upload;
 
+	    if (isset($_REQUEST["action"]) && ($_REQUEST["action"]=="upload-plugin")) {
+		    return $upload;
+	    }
+
         $s3=$this->s3Client(true);
         if ($s3)
         {
@@ -233,6 +243,59 @@ class ILabMediaS3Tool extends ILabMediaToolBase {
         return $upload;
     }
 
+	private function genUUID() {
+		return sprintf('%04x%04x%04x%03x4%04x%04x%04x%04x',
+		               mt_rand(0, 65535),
+		               mt_rand(0, 65535),
+		               mt_rand(0, 65535),
+		               mt_rand(0, 4095),
+		               bindec(substr_replace(sprintf('%016b', mt_rand(0, 65535)), '01', 6, 2)),
+		               mt_rand(0, 65535),
+		               mt_rand(0, 65535),
+		               mt_rand(0, 65535)
+		);
+	}
+
+	private function genUUIDPath() {
+		$uid = $this->genUUID();
+		$result='/';
+
+		$segments = 8;
+		if ($segments>strlen($uid)/2)
+			$segments=strlen($uid)/2;
+		for($i=0; $i<$segments; $i++)
+			$result.=substr($uid,$i*2,2).'/';
+
+		return $result;
+	}
+
+	private function parsePrefix($prefix) {
+		$host = parse_url(get_home_url(), PHP_URL_HOST);
+
+		$user = wp_get_current_user();
+		$userName = '';
+		if ($user->ID != 0) {
+			$userName = sanitize_title($user->display_name);
+		}
+
+		$prefix = str_replace("@{site-name}", sanitize_title(strtolower(get_bloginfo('name'))), $prefix);
+		$prefix = str_replace("@{site-host}", $host, $prefix);
+		$prefix = str_replace("@{user-name}", $userName, $prefix);
+		$prefix = str_replace("@{unique-id}", $this->genUUID(), $prefix);
+		$prefix = str_replace("@{unique-path}", $this->genUUIDPath(), $prefix);
+		$prefix = str_replace("//","/", $prefix);
+
+		$matches = [];
+		preg_match_all('/\@\{date\:([^\}]*)\}/', $prefix, $matches);
+		if (count($matches)==2) {
+			for($i = 0; $i<count($matches[0]); $i++) {
+				$prefix = str_replace($matches[0][$i],date($matches[1][$i]), $prefix);
+			}
+		}
+
+		return trim($prefix, '/').'/';
+	}
+
     private function processFile($s3,$upload_path,$filename,$data)
     {
         if (!file_exists($upload_path.'/'.$filename))
@@ -248,15 +311,24 @@ class ILabMediaS3Tool extends ILabMediaToolBase {
             $this->delete_file($s3,$key);
         }
 
+        $bucketFilename = $filename;
+
+        $prefix = '';
+	    if (!empty($this->prefixFormat)) {
+		    $prefix = $this->parsePrefix($this->prefixFormat);
+		    $parts= explode('/',$filename);
+		    $bucketFilename = array_pop($parts);
+	    }
+
         $file=fopen($upload_path.'/'.$filename,'r');
         try
         {
-            $result = $s3->upload($this->bucket,$filename,$file,'public-read');
+            $result = $s3->upload($this->bucket,$prefix.$bucketFilename,$file,'public-read');
 
             $data['s3']=[
               'url' => $result->get('ObjectURL') ,
               'bucket'=>$this->bucket,
-              'key'=>$filename
+              'key'=> $prefix.$bucketFilename
             ];
         }
         catch (\ILAB_Aws\Exception\AwsException $ex)
@@ -355,6 +427,13 @@ class ILabMediaS3Tool extends ILabMediaToolBase {
             return $this->cdn.'/'.$meta['s3']['key'];
         }
         else if (isset($meta['s3']) && isset($meta['s3']['url'])) {
+			if (isset($meta['file']) && $this->docCdn) {
+				$ext = strtolower(pathinfo($meta['file'],PATHINFO_EXTENSION));
+                $image_exts = array( 'jpg', 'jpeg', 'jpe', 'gif', 'png' );
+				if (!in_array( $ext, $image_exts ))
+					return trim($this->docCdn,'/').'/'.$meta['s3']['key'];
+			}
+
             return $meta['s3']['url'];
         }
 
@@ -481,23 +560,24 @@ class ILabMediaS3Tool extends ILabMediaToolBase {
     }
 
     public function importMedia() {
+	    $query = new WP_Query([
+		                          'post_type'      => 'attachment',
+		                          'post_status'    => 'inherit',
+		                          'post_mime_type' =>'image',
+		                          'fields'         => 'ids',
+		                          'nopaging'       => true,
+	                          ]);
 
-        $attachments = get_posts([
-                                     'post_type'=> 'attachment',
-                                     'posts_per_page' => -1
-                                 ]);
-
-
-        if (count($attachments)>0) {
+        if ($query->post_count > 0) {
             update_option('ilab_s3_import_status', true);
-            update_option('ilab_s3_import_total_count', count($attachments));
+            update_option('ilab_s3_import_total_count', $query->post_count);
             update_option('ilab_s3_import_current', 1);
 
             $process = new ILABS3ImportProcess();
 
-            for($i = 0; $i<count($attachments); $i++) {
-                $process->push_to_queue(['index' => $i, 'post' => $attachments[$i]->ID]);
-            }
+	        for($i = 0; $i < $query->post_count; ++$i) {
+		        $process->push_to_queue(['index' => $i, 'post' => $query->posts[$i]]);
+	        }
 
             $process->save();
             $process->dispatch();

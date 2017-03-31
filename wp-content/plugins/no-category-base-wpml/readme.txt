@@ -3,7 +3,7 @@ Contributors: Marios Alexandrou
 Donate Link: http://infolific.com/technology/software-worth-using/no-category-base-for-wordpress/
 Tags: category base, category parents, category slug, categories, category, url structure, permalinks, wpml
 Requires at least: 4.0
-Tested up to: 4.4.2
+Tested up to: 4.7
 License: GPLv2 or later
 
 This plugin removes the mandatory 'Category Base' from your category permalinks. It's compatible with WPML.
@@ -66,6 +66,9 @@ Go to Settings -> Permalinks and then click on Save Changes.
 1. Look Ma, No Category Base!
 
 == Changelog ==
+
+= 1.3 =
+* Bug fix provided by Albin.
 
 = 1.2 =
 * Plugin transferred to Marios Alexandrou. Support and development resumed.

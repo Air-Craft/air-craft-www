@@ -65,27 +65,27 @@ if (!empty($xml)) {
         <?php if (isset($_GET['notification'])) { ?>
     <div class="row">
         <div class="col-md-offset-4 col-xs-8 col-sm-8 col-md-8">
-            <?php if ($_GET['notification'] == 'create') { ?>                
-                    <div class="alert alert-success alert-dismissible fade in" role="alert">
+        <div class="alert alert-success alert-dismissible fade in" role="alert">
       <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">×</span></button>
-      <?php _e('Database Backup Created Successfully', 'wpdbbkp'); ?>
+            <?php if ($_GET['notification'] == 'create') { 
+             _e('Database Backup Created Successfully', 'wpdbbkp'); 
+              } 
+              else if ($_GET['notification'] == 'restore') { 
+                _e('Database Backup Restore Successfully', 'wpdbbkp'); 
+                 } 
+              else if ($_GET['notification'] == 'delete') { 
+                _e('Database Backup deleted Successfully', 'wpdbbkp'); 
+                 } 
+                 else if ($_GET['notification'] == 'clear_temp_db_backup_file') {
+                  _e('Clear all old/temp database backup files Successfully', 'wpdbbkp'); 
+             } 
+             else if ($_GET['notification'] == 'Invalid') {
+                  _e('Invalid Access!!!!', 'wpdbbkp'); 
+             }
+              ?>   
+        </div>        
     </div>
-            <?php } ?>
-            <?php if ($_GET['notification'] == 'restore') { ?>               
-                        <div class="alert alert-success alert-dismissible fade in" role="alert">
-      <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">×</span></button>
-     <?php _e('Database Backup Restore Successfully', 'wpdbbkp'); ?>
-    </div>
-            <?php } ?>
-            <?php if ($_GET['notification'] == 'delete') { ?>             
-                        <div class="alert alert-success alert-dismissible fade in" role="alert">
-      <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">×</span></button>
-      <?php _e('Database Backup deleted Successfully', 'wpdbbkp'); ?>
-    </div>
-    <?php } ?>
-        </div>
-        
-    </div>
+ </div>
 <?php } ?>
 <div class="row">
     <div class="col-md-offset-8 col-xs-4 col-sm-4 col-md-4">

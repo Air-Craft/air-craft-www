@@ -2,8 +2,8 @@
 Contributors: Askupa Software, ykadosh
 Tags: editor, code editor, highlighter, syntax highlighter, code prettifier, highlighting, syntax, ace editor, programming
 Requires at least: 3.0
-Tested up to: 4.5.3
-Stable tag: 1.3.6
+Tested up to: 4.7
+Stable tag: 1.3.9
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -65,6 +65,15 @@ Additionally, code can be easily inserted to both the HTML and the visual editor
 6. The code insertion/edition popup window
 
 == Changelog ==
+
+= 1.3.9 =
+* (FIX) Fixed an issue related to the Amarkal framework.
+
+= 1.3.8 =
+* (FIX) Fixed an issue that was causing PHP 7.1 to throw a lexical error.
+
+= 1.3.7 =
+* (FIX) "mivhak_settings is not defined" error fixed.
 
 = 1.3.6 =
 * (FIX) Moved render blocking scripts to footer
